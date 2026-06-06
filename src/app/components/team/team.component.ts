@@ -203,8 +203,8 @@ import { CommonModule } from '@angular/common';
 export class TeamComponent {
   team = [
     {
-      init: 'V', name: 'Vishal Seth', role: 'Founder & CEO',
-      bio: 'Visionary entrepreneur with 5+ years in technology and business strategy. Vishal drives client relationships, business development and the long-term vision of MrD Brains Technology.',
+      init: 'V', name: 'Vikas Seth', role: 'Founder & CEO',
+      bio: 'Visionary entrepreneur with 5+ years in technology and business strategy. Vikas drives client relationships, business development and the long-term vision of MrD Brains Technology.',
       skills: ['Business Strategy', '.NET', 'Azure', 'Leadership'],
       socials: [{ icon: 'bi bi-linkedin' }, { icon: 'bi bi-twitter-x' }],
       stats: [{ val: '5+', lbl: 'Yrs Exp' }, { val: '15+', lbl: 'Projects' }, { val: '5+', lbl: 'Clients' }],

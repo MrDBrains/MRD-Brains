@@ -33,7 +33,7 @@ import { RouterLink } from '@angular/router';
               </div>
               <!-- Identity -->
               <div class="fc-identity">
-                <div class="fc-name">Vishal Seth</div>
+                <div class="fc-name">Vikas Seth</div>
                 <div class="fc-title">Founder & CEO · MrD Brains Technology</div>
                 <div class="fc-location">
                   <i class="bi bi-geo-alt-fill"></i>
@@ -49,7 +49,7 @@ import { RouterLink } from '@angular/router';
                   We will always be developers. And we put every bit of that
                   into every project we take on.
                 </p>
-                <div class="fcq-sig">— Vishal Seth, Founder & CEO, 2022</div>
+                <div class="fcq-sig">— Vikas Seth, Founder & CEO, 2022</div>
               </div>
               <div class="fc-divider"></div>
               <!-- Mini stats -->
@@ -112,7 +112,7 @@ import { RouterLink } from '@angular/router';
 
             <div class="story-body">
               <p class="sb-lead">
-                When Vishal Seth and Adarsh Dubey named their studio in 2022,
+                When Vikas Seth and Adarsh Dubey named their studio in 2022,
                 they weren't being clever. They were being honest.
                 <strong>MrD Brains = Mr Developer's Brains</strong> — two developers
                 who believed that the best software comes not from salespeople,
@@ -121,7 +121,7 @@ import { RouterLink } from '@angular/router';
               </p>
 
               <p class="sb-p">
-                Both founders are developers first. Vishal built systems. Adarsh
+                Both founders are developers first. Vikas built systems. Adarsh
                 architected them. They spent years inside the industry watching
                 the same frustrating pattern — Mumbai businesses paying lakhs
                 for software built by agencies where the developers were the last
@@ -179,9 +179,9 @@ import { RouterLink } from '@angular/router';
               <a routerLink="/contact" class="btn-gold">
                 Work With Us <i class="bi bi-arrow-right"></i>
               </a>
-              <a href="https://wa.me/919372401266?text=Hi%20Vishal!%20I%20read%20your%20story%20and%20would%20love%20to%20discuss%20a%20project."
+              <a href="https://wa.me/919372401266?text=Hi%20Vikas!%20I%20read%20your%20story%20and%20would%20love%20to%20discuss%20a%20project."
                  target="_blank" class="btn-outline">
-                <i class="bi bi-whatsapp"></i> Message Vishal
+                <i class="bi bi-whatsapp"></i> Message Vikas
               </a>
             </div>
           </div>
