@@ -386,7 +386,7 @@ export class ContactComponent {
   infos = [
     { icon: 'bi bi-geo-alt-fill', label: 'Studio Address', value: '03, Jawahar Nagar, Khar East, Mumbai 400051' },
     { icon: 'bi bi-telephone-fill', label: 'Phone / WhatsApp', value: '+91 937-240-1266' },
-    { icon: 'bi bi-envelope-fill', label: 'Email', value: 'mrdbrainstech@hotmail.com' },
+    { icon: 'bi bi-envelope-fill', label: 'Email', value: 'mrdbrainstechnology@gmail.com' },
   ];
 
   slas = [

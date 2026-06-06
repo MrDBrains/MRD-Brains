@@ -241,7 +241,7 @@ export class FooterComponent {
   contacts = [
     { icon: 'bi bi-geo-alt-fill',   label: 'Address',       value: '03 Jawahar Nagar, Khar East, Mumbai 400051' },
     { icon: 'bi bi-telephone-fill', label: 'Phone / WA',    value: '+91 937-240-1266' },
-    { icon: 'bi bi-envelope-fill',  label: 'Email',         value: 'mrdbrainstech@hotmail.com' },
+    { icon: 'bi bi-envelope-fill',  label: 'Email',         value: 'mrdbrainstechnology@gmail.com' },
     { icon: 'bi bi-clock-fill',     label: 'Working Hours', value: 'Mon–Sat · 9:00 AM – 7:00 PM IST' },
   ];
   tech = ['.NET', 'Angular', 'React', 'Azure', 'SQL Server', 'MongoDB'];
