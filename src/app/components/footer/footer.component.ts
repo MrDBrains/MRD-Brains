@@ -59,6 +59,7 @@ import { Router, RouterLink } from '@angular/router';
             <div class="ft-socials">
               <a href="https://www.linkedin.com/company/mrd-brains" target="_blank"><i class="bi bi-linkedin"></i></a>
               <a href="https://github.com/MrDBrains" target="_blank"><i class="bi bi-github"></i></a>
+              <a href="https://www.instagram.com/mrdbrainstechnology/" target="_blank"><i class="bi bi-instagram"></i></a>
             </div>
           </div>
 

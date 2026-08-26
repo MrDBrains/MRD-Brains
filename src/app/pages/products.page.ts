@@ -3,80 +3,25 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Title, Meta } from '@angular/platform-browser';
 import { VyaparLedgerComponent } from '../components/vyapar-ledger/vyapar-ledger.component';
 import { ProductDetailComponent } from '../components/product-detail/product-detail.component';
+import { PageHeroComponent } from '../components/page-hero/page-hero.component';
 
 declare const AOS: any;
 
 @Component({
   selector: 'app-products-page',
   standalone: true,
-  imports: [CommonModule, VyaparLedgerComponent, ProductDetailComponent],
+  imports: [CommonModule, VyaparLedgerComponent, ProductDetailComponent, PageHeroComponent],
   template: `
-    <div class="page-hero">
-      <div class="ph-glow"></div>
-      <div class="ph-grid"></div>
-      <div class="container" style="position:relative;z-index:2">
-        <div class="ph-inner">
-          <div class="eyebrow">Products</div>
-          <h1 class="ph-title">
-            Our Own Product.<br>
-            <em>Built by MrD Brains.</em>
-          </h1>
-          <p class="ph-desc">
-            Vyapar Ledger — complete business management with billing, GST, inventory,
-            customers, ledger, expenses, reports and AI-powered insights, all in one platform.
-          </p>
-          <div class="ph-breadcrumb">
-            <a (click)="nav('/')">Home</a>
-            <span>/</span>
-            <span>Products</span>
-          </div>
-        </div>
-      </div>
-    </div>
+    <app-page-hero
+      eyebrow="Products"
+      titleLine1="Our Own Product."
+      titleEm="Built by MrD Brains."
+      description="Vyapar Ledger — complete business management with billing, GST, inventory, customers, ledger, expenses, reports and AI-powered insights, all in one platform."
+      breadcrumbLabel="Products">
+    </app-page-hero>
     <app-vyapar-ledger></app-vyapar-ledger>
     <app-product-detail></app-product-detail>
   `,
-  styles: [`
-    .page-hero {
-      padding: 152px 0 72px; background: var(--obsidian);
-      position: relative; overflow: hidden; text-align: center;
-    }
-    .ph-glow {
-      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-      width: 600px; height: 400px;
-      background: radial-gradient(ellipse, var(--gold-tint) 0%, transparent 65%);
-      pointer-events: none; opacity: .7;
-    }
-    .ph-grid {
-      position: absolute; inset: 0; pointer-events: none;
-      background-image:
-        linear-gradient(var(--border) 1px, transparent 1px),
-        linear-gradient(90deg, var(--border) 1px, transparent 1px);
-      background-size: 56px 56px;
-      mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, black 0%, transparent 75%);
-      opacity: .5;
-    }
-    .ph-inner { max-width: 700px; margin: 0 auto; }
-    .ph-title {
-      font-family: var(--f-head); font-weight: 800;
-      font-size: clamp(2.4rem, 5vw, 4rem);
-      color: var(--ghost); line-height: 1.08;
-      letter-spacing: -.03em; margin-bottom: 18px;
-      em { color: var(--gold); font-style: normal; font-family: var(--f-head); font-weight: 800; font-size: 1em; }
-    }
-    .ph-desc {
-      font-size: 1.05rem; font-weight: 400; color: var(--ghost-m);
-      line-height: 1.8; max-width: 540px; margin: 0 auto 24px;
-    }
-    .ph-breadcrumb {
-      display: inline-flex; align-items: center; gap: 10px;
-      font-family: var(--f-mono); font-size: .62rem;
-      color: var(--ghost-m); letter-spacing: .08em;
-      background: var(--obsidian-s); border: 1px solid var(--border); border-radius: 50px; padding: 6px 16px;
-      a { color: var(--gold); cursor: pointer; &:hover { text-decoration: underline; } }
-      span:not(:first-child) { color: var(--ghost-muted); }
-    }
-  `]
 })
 export class ProductsPageComponent implements OnInit {
   constructor(

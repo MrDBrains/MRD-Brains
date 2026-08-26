@@ -235,7 +235,7 @@ import { FormsModule } from '@angular/forms';
     }
     .ci-badge {
       display:flex;align-items:center;gap:12px;margin-bottom:20px;
-      background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);
+      background:rgba(17,17,17,.025);border:1px solid rgba(17,17,17,.08);
       border-radius:13px;padding:13px 16px;
     }
     .cib-logo {
@@ -256,7 +256,7 @@ import { FormsModule } from '@angular/forms';
     .ci-contacts { display:flex;flex-direction:column;gap:10px;margin-bottom:24px; }
     .cic-item {
       display:flex;align-items:center;gap:12px;
-      background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.05);
+      background:rgba(17,17,17,.02);border:1px solid rgba(17,17,17,.06);
       border-radius:12px;padding:14px 16px;transition:all .25s;cursor:default;
       &:hover{border-color:rgba(201,151,74,.18);background:var(--gold-dim)}
     }
@@ -281,17 +281,17 @@ import { FormsModule } from '@angular/forms';
     .sla-title { font-family:var(--f-head);font-weight:700;font-size:.8rem;color:var(--ghost); }
     .sla-desc  { font-size:.72rem;color:var(--ghost-d); }
 
-    .ci-socials { border-top:1px solid rgba(255,255,255,.06);padding-top:20px; }
+    .ci-socials { border-top:1px solid rgba(17,17,17,.08);padding-top:20px; }
     .cs-label { font-family:var(--f-mono);font-size:.6rem;text-transform:uppercase;letter-spacing:.16em;color:var(--ghost-d);margin-bottom:12px; }
     .cs-links { display:flex;gap:7px;flex-wrap:wrap; }
     .csl {
       display:inline-flex;align-items:center;gap:6px;
-      background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+      background:rgba(17,17,17,.03);border:1px solid rgba(17,17,17,.08);
       border-radius:8px;padding:8px 14px;
       font-family:var(--f-mono);font-size:.68rem;color:var(--ghost-d);
       transition:all .22s;
       i{font-size:.8rem}
-      &:hover{background:var(--gold);color:var(--obsidian);border-color:var(--gold)}
+      &:hover{background:var(--gold);color:#fff;border-color:var(--gold)}
     }
 
     /* ── Form card ── */
@@ -315,31 +315,31 @@ import { FormsModule } from '@angular/forms';
     }
     .ff-wrap {
       position:relative;display:flex;align-items:center;
-      i:first-child{position:absolute;left:14px;color:rgba(201,151,74,.4);font-size:.82rem;pointer-events:none;z-index:1}
+      i:first-child{position:absolute;left:14px;color:rgba(242,106,33,.55);font-size:.82rem;pointer-events:none;z-index:1}
       input,select{
-        width:100%;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.09);
+        width:100%;background:#FFFFFF;border:1.5px solid rgba(17,17,17,.12);
         border-radius:10px;padding:12px 16px 12px 40px;color:var(--ghost);
         font-family:var(--f-body);font-size:.88rem;transition:all .24s;outline:none;
-        &::placeholder{color:rgba(237,233,225,.18)}
-        &:focus{border-color:rgba(201,151,74,.38);background:rgba(201,151,74,.04);box-shadow:0 0 0 3px rgba(201,151,74,.08)}
+        &::placeholder{color:var(--ghost-muted)}
+        &:focus{border-color:rgba(242,106,33,.5);background:#fff;box-shadow:0 0 0 3px rgba(242,106,33,.1)}
       }
     }
     .ff-select { select{appearance:none;cursor:pointer;padding-right:36px} }
-    .sel-arrow { position:absolute;right:14px;color:rgba(201,151,74,.4);font-size:.72rem;pointer-events:none;z-index:1 }
-    select option { background:var(--obsidian-m);color:var(--ghost); }
+    .sel-arrow { position:absolute;right:14px;color:rgba(242,106,33,.55);font-size:.72rem;pointer-events:none;z-index:1 }
+    select option { background:#fff;color:var(--ghost); }
     textarea {
-      width:100%;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.09);
+      width:100%;background:#FFFFFF;border:1.5px solid rgba(17,17,17,.12);
       border-radius:10px;padding:14px 16px;color:var(--ghost);
       font-family:var(--f-body);font-size:.88rem;line-height:1.7;resize:vertical;outline:none;
       transition:all .24s;
-      &::placeholder{color:rgba(237,233,225,.18)}
-      &:focus{border-color:rgba(201,151,74,.38);background:rgba(201,151,74,.04);box-shadow:0 0 0 3px rgba(201,151,74,.08)}
+      &::placeholder{color:var(--ghost-muted)}
+      &:focus{border-color:rgba(242,106,33,.5);background:#fff;box-shadow:0 0 0 3px rgba(242,106,33,.1)}
     }
     .budget-pills { display:flex;flex-wrap:wrap;gap:7px; }
     .bp {
-      background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+      background:rgba(17,17,17,.03);border:1px solid rgba(17,17,17,.12);
       border-radius:7px;padding:8px 16px;cursor:pointer;
-      font-family:var(--f-mono);font-size:.7rem;color:var(--ghost-d);transition:all .2s;
+      font-family:var(--f-mono);font-size:.7rem;color:var(--ghost-m);transition:all .2s;
       &.active,&:hover{background:var(--gold-dim);border-color:var(--gold-ring);color:var(--gold)}
     }
     .submit-btn {
