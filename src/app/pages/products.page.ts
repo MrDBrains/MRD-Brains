@@ -38,21 +38,23 @@ declare const AOS: any;
   `,
   styles: [`
     .page-hero {
-      padding: 160px 0 100px; background: var(--obsidian);
+      padding: 152px 0 72px; background: var(--obsidian);
       position: relative; overflow: hidden; text-align: center;
     }
     .ph-glow {
       position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
       width: 600px; height: 400px;
-      background: radial-gradient(ellipse, rgba(232,93,58,.06) 0%, transparent 65%);
-      pointer-events: none;
+      background: radial-gradient(ellipse, var(--gold-tint) 0%, transparent 65%);
+      pointer-events: none; opacity: .7;
     }
     .ph-grid {
       position: absolute; inset: 0; pointer-events: none;
       background-image:
-        linear-gradient(rgba(201,151,74,.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(201,151,74,.03) 1px, transparent 1px);
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
       background-size: 56px 56px;
+      mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, black 0%, transparent 75%);
+      opacity: .5;
     }
     .ph-inner { max-width: 700px; margin: 0 auto; }
     .ph-title {
@@ -60,18 +62,19 @@ declare const AOS: any;
       font-size: clamp(2.4rem, 5vw, 4rem);
       color: var(--ghost); line-height: 1.08;
       letter-spacing: -.03em; margin-bottom: 18px;
-      em { color: var(--gold); font-style: italic; font-family: var(--f-display); font-weight: 300; font-size: 1.1em; }
+      em { color: var(--gold); font-style: normal; font-family: var(--f-head); font-weight: 800; font-size: 1em; }
     }
     .ph-desc {
-      font-size: 1rem; font-weight: 300; color: var(--ghost-d);
+      font-size: 1.05rem; font-weight: 400; color: var(--ghost-m);
       line-height: 1.8; max-width: 540px; margin: 0 auto 24px;
     }
     .ph-breadcrumb {
       display: inline-flex; align-items: center; gap: 10px;
       font-family: var(--f-mono); font-size: .62rem;
-      color: var(--ghost-d); letter-spacing: .08em;
+      color: var(--ghost-m); letter-spacing: .08em;
+      background: var(--obsidian-s); border: 1px solid var(--border); border-radius: 50px; padding: 6px 16px;
       a { color: var(--gold); cursor: pointer; &:hover { text-decoration: underline; } }
-      span:not(:first-child) { color: rgba(255,255,255,.2); }
+      span:not(:first-child) { color: var(--ghost-muted); }
     }
   `]
 })

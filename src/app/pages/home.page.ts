@@ -26,7 +26,7 @@ declare const AOS: any;
   template: `
     <app-hero></app-hero>
     <app-mumbai-strip></app-mumbai-strip>
-    <app-stats></app-stats>
+    <!-- <app-stats></app-stats> -->
     <app-what-we-build></app-what-we-build>
     <app-featured-work></app-featured-work>
     <app-hospitality></app-hospitality>

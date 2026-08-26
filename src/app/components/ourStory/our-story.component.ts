@@ -215,6 +215,7 @@ import { RouterLink } from '@angular/router';
       background: linear-gradient(160deg, var(--obsidian-l), var(--obsidian-m));
       border: 1px solid rgba(201,151,74,.18); border-radius: 26px; padding: 36px;
       position: relative; overflow: hidden;
+      box-shadow: var(--sh-lg);
       &::before {
         content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
         background: linear-gradient(90deg, transparent, rgba(201,151,74,.55), transparent);
@@ -309,6 +310,7 @@ import { RouterLink } from '@angular/router';
       background: linear-gradient(135deg, var(--obsidian-l), var(--obsidian-m));
       border: 1px solid rgba(201,151,74,.22); border-radius: 18px;
       padding: 28px; margin-bottom: 32px; position: relative; overflow: hidden;
+      box-shadow: var(--sh-md);
       &::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background: linear-gradient(90deg,transparent,rgba(201,151,74,.5),transparent); }
     }
     .nc-row {
@@ -388,26 +390,30 @@ export class OurStoryComponent {
     { val: '5.0', lbl: 'Rating' },
   ];
 
-  milestones = [
-    {
-      icon: 'bi bi-lightbulb-fill', year: '2022',
-      title: 'The Frustration That Started Everything',
-      desc: 'Witnessed Mumbai businesses paying for software that never fit them. Decided to build a studio that actually listens first.',
-    },
-    {
-      icon: 'bi bi-people-fill', year: '2023',
-      title: 'First Enterprise Clients & Team Growth',
-      desc: 'Delivered our first enterprise ERP system. Expanded into Angular, React and Azure cloud. Adarsh joined as Co-Founder & CTO.',
-    },
-    {
-      icon: 'bi bi-shop', year: '2025',
-      title: 'Vyapar Ledger — Our Own Product',
-      desc: 'Launched a SaaS platform built specifically for India\'s jewellery trade. 50+ shops onboarded in the first few months.',
-    },
-    {
-      icon: 'bi bi-whatsapp', year: '2025',
-      title: 'AI & WhatsApp Automation Goes Live',
-      desc: 'Launched AI chatbot and WhatsApp Business API services — helping SMEs automate customer engagement at scale.',
-    },
-  ];
+ milestones = [
+  {
+    icon: 'bi bi-lightbulb-fill',
+    year: '2022',
+    title: 'The Studio Begins',
+    desc: 'MrD Brains Technology was founded in Mumbai with a focus on building custom .NET solutions that solve real business problems instead of forcing businesses into one-size-fits-all software.',
+  },
+  {
+    icon: 'bi bi-people-fill',
+    year: '2023',
+    title: 'Enterprise Solutions & Technology Expansion',
+    desc: 'Delivered our first enterprise business systems and expanded our capabilities across Angular, React and Azure cloud technologies. The team grew with a stronger focus on scalable, maintainable software engineering.',
+  },
+  {
+    icon: 'bi bi-box-seam-fill',
+    year: '2025',
+    title: 'Vyapar Ledger — Our Own Product',
+    desc: 'Started building Vyapar Ledger, our proprietary business management platform for billing, inventory, GST, ledger and day-to-day business operations, with an AI-ready and offline-first approach.',
+  },
+  {
+    icon: 'bi bi-robot',
+    year: '2026',
+    title: 'AI, Automation & Product Expansion',
+    desc: 'Expanded into AI-powered applications and WhatsApp Business API automation for SMEs, while continuing the development and expansion of Vyapar Ledger across mobile and upcoming Windows experiences.',
+  },
+];
 }

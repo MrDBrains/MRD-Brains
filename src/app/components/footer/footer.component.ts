@@ -6,7 +6,7 @@ import { Router, RouterLink } from '@angular/router';
 @Component({
   selector: 'app-footer',
   standalone: true, imports: [CommonModule, FormsModule, RouterLink],
-  template: `
+   template: `
     <footer class="footer">
       <div class="noise"></div>
       <div class="ft-top-rule"></div>
@@ -119,39 +119,42 @@ import { Router, RouterLink } from '@angular/router';
     </footer>
   `,
   styles: [`
-    .footer { background: var(--obsidian); position: relative; overflow: hidden; }
-    .ft-top-rule { height:1px;background:linear-gradient(90deg,transparent,var(--gold) 25%,var(--coral) 75%,transparent); }
-    .ft-glow { position:absolute;top:0;left:50%;transform:translateX(-50%);width:700px;height:280px;background:radial-gradient(ellipse,rgba(201,151,74,.05) 0%,transparent 70%);pointer-events:none; }
+    /* Footer palette — deep navy / white / orange */
+   
+
+    .footer { background: var(--footer-bg, #0F172A); color: var(--footer-text, #FFFFFF); position: relative; overflow: hidden; }
+    .ft-top-rule { height:1px;background:linear-gradient(90deg,transparent,var(--footer-orange, #FF6B1A) 25%,var(--footer-orange, #FF6B1A) 75%,transparent); }
+    .ft-glow { display: none; }
 
     /* Newsletter */
     .ft-newsletter {
-      border-bottom:1px solid rgba(255,255,255,.05);padding:36px 0;
+      border-bottom:1px solid var(--footer-border, rgba(148,180,216,.14));padding:36px 0;
     }
     .fn-inner { display:flex;align-items:center;justify-content:space-between;gap:36px; }
     @media(max-width:767px){ .fn-inner{flex-direction:column;align-items:flex-start} }
-    .fn-label { font-family:var(--f-mono);font-size:.62rem;text-transform:uppercase;letter-spacing:.18em;color:rgba(201,151,74,.5);margin-bottom:4px; }
-    .fn-title { font-family:var(--f-head);font-weight:700;font-size:1.05rem;color:var(--ghost); }
+    .fn-label { font-family:var(--f-mono);font-size:.62rem;text-transform:uppercase;letter-spacing:.18em;color:var(--footer-orange, #FF6B1A);margin-bottom:4px; }
+    .fn-title { font-family:var(--f-head);font-weight:700;font-size:1.05rem;color:var(--footer-text, #FFFFFF); }
     .fn-right { flex-shrink:0;min-width:360px; }
     @media(max-width:575px){ .fn-right{min-width:unset;width:100%} }
     .fn-form { display:flex;gap:0;margin-bottom:8px;
       input {
-        flex:1;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
+        flex:1;background:#FFFFFF;border:1px solid var(--footer-border, rgba(148,180,216,.14));
         border-right:none;border-radius:7px 0 0 7px;padding:12px 16px;
-        color:var(--ghost);font-family:var(--f-body);font-size:.86rem;outline:none;
-        &::placeholder{color:rgba(237,233,225,.2)}
-        &:focus{border-color:rgba(201,151,74,.3);background:rgba(201,151,74,.04)}
+        color:#111111;font-family:var(--f-body);font-size:.86rem;outline:none;
+        &::placeholder{color:#8FA7C2}
+        &:focus{border-color:var(--footer-orange, #FF6B1A)}
       }
       button {
-        background:linear-gradient(135deg,var(--gold-l),var(--gold));color:var(--obsidian);
+        background:var(--footer-orange, #FF6B1A);color:#fff;
         border:none;border-radius:0 7px 7px 0;padding:12px 20px;cursor:pointer;
         font-family:var(--f-head);font-weight:700;font-size:.76rem;letter-spacing:.04em;
         white-space:nowrap;transition:all .25s;
-        &:hover{background:linear-gradient(135deg,var(--gold-bright),var(--gold-l))}
-        &.success{background:linear-gradient(135deg,#2ECC71,#27AE60)}
+        &:hover{background:var(--footer-orange-dark, #E85A0C)}
+        &.success{background:var(--emerald)}
         i{margin-right:5px}
       }
     }
-    .fn-note { font-family:var(--f-mono);font-size:.6rem;color:var(--ghost-d);letter-spacing:.06em; }
+    .fn-note { font-family:var(--f-mono);font-size:.6rem;color:var(--footer-text-muted, #6F89A8);letter-spacing:.06em; }
 
     /* Main grid */
     .ft-grid { display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:48px;padding:60px 0 40px; }
@@ -161,43 +164,43 @@ import { Router, RouterLink } from '@angular/router';
     .ft-logo { display:flex;align-items:center;gap:12px;margin-bottom:16px; }
     .ft-logo-mark {
       width:44px;height:44px;border-radius:11px;
-      background:#fff;border:1.5px solid rgba(201,151,74,.2);
+      background:#fff;border:1px solid rgba(255,255,255,.18);
       display:flex;align-items:center;justify-content:center;flex-shrink:0;
       img{width:36px;height:36px;object-fit:contain}
     }
     .ftl-name { font-family:var(--f-head);font-weight:800;font-size:.9rem;line-height:1.1; }
-    .bn-coral { color: #F0674A; }
-    .bn-dark  { color: #1A1A1A; }
-    .ftl-sub  { font-family:var(--f-mono);font-size:.58rem;color:rgba(201,151,74,.5);letter-spacing:.12em;text-transform:uppercase; }
+    .bn-coral { color: var(--gold); }
+    .bn-dark  { color: var(--ghost); }
+    .ftl-sub  { font-family:var(--f-mono);font-size:.58rem;color:#8FA7C2;letter-spacing:.12em;text-transform:uppercase; }
     .ft-desc  { font-size:.82rem;font-weight:300;color:var(--ghost-d);line-height:1.82;margin-bottom:18px;max-width:280px; }
     .ft-badges { display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:18px;
       .ftb-item {
         display:flex;align-items:center;gap:6px;
-        background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
+        background:#FFFFFF;border:1px solid var(--footer-border, rgba(148,180,216,.14));
         border-radius:7px;padding:7px 11px;
-        font-family:var(--f-mono);font-size:.62rem;color:var(--ghost-d);
-        i{color:var(--gold);font-size:.72rem}
+        font-family:var(--f-mono);font-size:.62rem;color:var(--footer-text-soft, #94B4D8);
+        i{color:var(--footer-orange, #FF6B1A);font-size:.72rem}
       }
     }
     .ft-socials { display:flex;gap:7px;
       a {
         width:34px;height:34px;border-radius:8px;
-        background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
-        display:flex;align-items:center;justify-content:center;color:var(--ghost-d);
+        background:#FFFFFF;border:1px solid var(--footer-border, rgba(148,180,216,.14));
+        display:flex;align-items:center;justify-content:center;color:var(--footer-text-soft, #94B4D8);
         transition:all .2s; i{font-size:.82rem}
-        &:hover{background:var(--gold);color:var(--obsidian);border-color:var(--gold)}
+        &:hover{background:var(--footer-orange, #FF6B1A);color:#fff;border-color:var(--footer-orange, #FF6B1A)}
       }
     }
 
     .ft-col {
       h5 {
         font-family:var(--f-mono);font-size:.66rem;font-weight:500;
-        text-transform:uppercase;letter-spacing:.18em;color:var(--gold);margin-bottom:20px;
+        text-transform:uppercase;letter-spacing:.18em;color:var(--footer-orange, #FF6B1A);margin-bottom:20px;
       }
       .ft-sub-h5 { margin-top:24px; }
       ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:9px;
-        li a{font-size:.82rem;font-weight:300;color:var(--ghost-d);cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:0;
-          &:hover{color:var(--gold);padding-left:7px}
+        li a{font-size:.82rem;font-weight:400;color:var(--footer-text-soft, #94B4D8);cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:0;
+          &:hover{color:var(--footer-orange, #FF6B1A);padding-left:7px}
         }
       }
     }
@@ -206,29 +209,29 @@ import { Router, RouterLink } from '@angular/router';
     .fcr-item { display:flex;gap:10px;align-items:flex-start; }
     .fcr-icon {
       width:32px;height:32px;flex-shrink:0;border-radius:8px;
-      background:var(--gold-dim);border:1px solid var(--gold-ring);
+      background:rgba(255,107,26,.08);border:1px solid rgba(255,107,26,.20);
       display:flex;align-items:center;justify-content:center;
-      i{color:var(--gold);font-size:.76rem}
+      i{color:var(--footer-orange, #FF6B1A);font-size:.76rem}
     }
-    .fcr-label { font-family:var(--f-mono);font-size:.58rem;text-transform:uppercase;letter-spacing:.1em;color:var(--ghost-d); }
-    .fcr-value { font-size:.8rem;color:var(--ghost-m);margin-top:2px; }
+    .fcr-label { font-family:var(--f-mono);font-size:.58rem;text-transform:uppercase;letter-spacing:.1em;color:#8FA7C2; }
+    .fcr-value { font-size:.8rem;color:var(--footer-text-soft, #94B4D8);margin-top:2px; }
     .ft-tech-chips { display:flex;flex-wrap:wrap;gap:5px;
-      span{background:var(--gold-dim);border:1px solid var(--gold-ring);border-radius:4px;padding:3px 9px;font-family:var(--f-mono);font-size:.62rem;color:var(--gold)} }
+      span{background:rgba(255,107,26,.08);border:1px solid rgba(255,107,26,.20);border-radius:4px;padding:3px 9px;font-family:var(--f-mono);font-size:.62rem;color:var(--gold)} }
 
     /* Bottom */
     .ft-bottom {
-      border-top:1px solid rgba(255,255,255,.06);padding:22px 0;
+      border-top:1px solid var(--footer-border, rgba(148,180,216,.14));padding:22px 0;
       display:flex;align-items:center;justify-content:space-between;gap:20px;
     }
     @media(max-width:767px){ .ft-bottom{flex-direction:column;gap:12px;text-align:center} }
-    .ftb-left p { color:var(--ghost-d);font-size:.78rem; strong{color:var(--ghost);font-weight:600} }
+    .ftb-left p { color:var(--footer-text-soft, #94B4D8);font-size:.78rem; strong{color:var(--footer-text, #FFFFFF);font-weight:600} }
     .ftb-links { display:flex;align-items:center;gap:10px;margin-top:5px;
-      a{font-family:var(--f-mono);font-size:.62rem;color:var(--ghost-d);transition:color .2s;&:hover{color:var(--gold)}}
-      span{color:rgba(255,255,255,.12)}
+      a{font-family:var(--f-mono);font-size:.62rem;color:var(--footer-text-soft, #94B4D8);transition:color .2s;&:hover{color:var(--gold)}}
+      span{color:var(--border)}
     }
     .ftb-right { display:flex;flex-direction:column;align-items:flex-end;gap:3px; }
-    .ftbr-tag { font-family:var(--f-mono);font-size:.58rem;color:var(--ghost-d);letter-spacing:.1em;text-transform:uppercase; }
-    .ftbr-city { font-family:var(--f-head);font-weight:700;font-size:.84rem;color:var(--ghost); i{color:var(--coral);font-size:.72rem;margin-left:4px} }
+    .ftbr-tag { font-family:var(--f-mono);font-size:.58rem;color:var(--footer-text-soft, #94B4D8);letter-spacing:.1em;text-transform:uppercase; }
+    .ftbr-city { font-family:var(--f-head);font-weight:700;font-size:.84rem;color:var(--footer-text, #FFFFFF); i{color:var(--footer-orange, #FF6B1A);font-size:.72rem;margin-left:4px} }
   `]
 })
 export class FooterComponent {

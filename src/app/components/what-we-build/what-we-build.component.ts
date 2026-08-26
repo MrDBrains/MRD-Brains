@@ -36,9 +36,11 @@ import { RouterLink } from '@angular/router';
     @media(max-width:991px){ .wwb-grid{grid-template-columns:1fr 1fr} }
     @media(max-width:575px){ .wwb-grid{grid-template-columns:1fr} }
     .wwb-card {
-      background: var(--obsidian-m); border: 1px solid rgba(255,255,255,.07);
-      border-radius: 16px; padding: 26px; transition: all .3s;
-      &:hover { border-color: rgba(201,151,74,.22); transform: translateY(-4px); }
+      background: var(--obsidian-m); border: 1px solid var(--border);
+      border-radius: 16px; padding: 26px;
+      box-shadow: var(--sh-sm);
+      transition: all .3s;
+      &:hover { border-color: rgba(201,151,74,.22); transform: translateY(-4px); box-shadow: var(--sh-md); }
     }
     .wwb-icon {
       width: 42px; height: 42px; border-radius: 11px; margin-bottom: 16px;

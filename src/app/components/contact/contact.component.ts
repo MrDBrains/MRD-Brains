@@ -230,6 +230,7 @@ import { FormsModule } from '@angular/forms';
       background:linear-gradient(160deg,var(--obsidian-l),var(--obsidian-m));
       border:1px solid rgba(201,151,74,.14);border-radius:22px;padding:34px;
       position:relative;overflow:hidden;
+      box-shadow:var(--sh-lg);
       &::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,151,74,.4),transparent)}
     }
     .ci-badge {
@@ -295,8 +296,9 @@ import { FormsModule } from '@angular/forms';
 
     /* ── Form card ── */
     .contact-form-card {
-      background:var(--obsidian-l);border:1px solid rgba(255,255,255,.08);
+      background:var(--obsidian-l);border:1px solid var(--border);
       border-radius:22px;padding:40px;position:relative;overflow:hidden;
+      box-shadow:var(--sh-lg);
       &::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,151,74,.22),transparent)}
     }
     .cfc-top { margin-bottom:16px; }
@@ -355,6 +357,7 @@ import { FormsModule } from '@angular/forms';
     .sent-card {
       background:var(--obsidian-l);border:1px solid rgba(201,151,74,.18);
       border-radius:22px;padding:72px 44px;text-align:center;
+      box-shadow:var(--sh-lg);
       h4{font-family:var(--f-head);font-weight:800;font-size:1.6rem;color:var(--ghost);margin:20px 0 10px}
       p{font-size:.9rem;color:var(--ghost-d);line-height:1.8;max-width:380px;margin:0 auto 28px}
     }

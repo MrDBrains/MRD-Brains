@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CountUpDirective } from '../../shared/directives/count-up.directive';
 
 @Component({
   selector: 'app-mumbai-strip',
-  standalone: true, imports: [CommonModule],
+  standalone: true, imports: [CommonModule, CountUpDirective],
   template: `
     <section class="mumbai-sec">
       <div class="noise"></div>
@@ -57,7 +58,7 @@ import { CommonModule } from '@angular/common';
                 <div class="msc-divider"></div>
                 <div class="msc-stats">
                   <div class="mscs-item" *ngFor="let s of cityStats">
-                    <div class="mscsi-val">{{ s.val }}</div>
+                    <div class="mscsi-val" appCountUp [countUpValue]="s.val">{{ s.val }}</div>
                     <div class="mscsi-lbl">{{ s.lbl }}</div>
                   </div>
                 </div>
@@ -166,8 +167,10 @@ import { CommonModule } from '@angular/common';
       border: 1px solid rgba(201,151,74,.2); border-radius: 24px;
       position: relative; overflow: hidden; flex-shrink: 0;
       display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 24px 60px rgba(0,0,0,.4);
+      box-shadow: var(--sh-lg);
+      transition: box-shadow .3s ease, transform .3s ease;
       &::before { content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,151,74,.5),transparent); }
+      &:hover { transform: translateY(-4px); box-shadow: 0 12px 20px rgba(16,24,40,.06), 0 32px 64px rgba(200,146,46,.14); }
     }
     .msc-bg-text {
       position: absolute; font-family: var(--f-head); font-weight: 800;

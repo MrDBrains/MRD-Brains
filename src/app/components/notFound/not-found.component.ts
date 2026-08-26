@@ -210,12 +210,12 @@ import { CommonModule } from '@angular/common';
     @media(max-width:480px){ .nfl-grid{ grid-template-columns: 1fr; } }
     .nfl-item {
       display: flex; align-items: center; gap: 12px; text-align: left;
-      background: var(--obsidian-m); border: 1px solid rgba(255,255,255,.07);
-      border-radius: 12px; padding: 14px 16px; cursor: pointer;
+      background: var(--obsidian-m); border: 1px solid var(--border);
+      border-radius: 12px; padding: 14px 16px; cursor: pointer; box-shadow: var(--sh-sm);
       transition: all .25s; width: 100%;
       &:hover {
         border-color: rgba(201,151,74,.22); background: var(--obsidian-l);
-        transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.3);
+        transform: translateY(-2px); box-shadow: var(--sh-lg);
         .nfli-arrow { opacity: 1; transform: translateX(0); color: var(--gold); }
       }
     }

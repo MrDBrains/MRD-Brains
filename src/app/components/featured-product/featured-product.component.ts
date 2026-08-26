@@ -44,7 +44,10 @@ import { RouterLink } from '@angular/router';
       background: linear-gradient(160deg, var(--obsidian-l), var(--obsidian-m));
       border: 1px solid rgba(201,151,74,.16); border-radius: 24px; padding: 48px;
       position: relative; overflow: hidden;
+      box-shadow: var(--sh-lg);
+      transition: box-shadow .35s ease, transform .35s ease;
       &::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(201,151,74,.5), transparent); }
+      &:hover { transform: translateY(-3px); box-shadow: 0 12px 20px rgba(16,24,40,.06), 0 32px 64px rgba(200,146,46,.14); }
     }
     @media(max-width:900px){ .fp-card{grid-template-columns:1fr;padding:32px} .fp-right{display:none} }
     .fp-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 28px; }
@@ -55,7 +58,7 @@ import { RouterLink } from '@angular/router';
     .fp-right { display: flex; align-items: center; justify-content: center; max-width: 460px; }
     .fp-shot {
       border-radius: 14px; overflow: hidden; border: 1px solid rgba(201,151,74,.22);
-      box-shadow: 0 24px 60px rgba(0,0,0,.45);
+      box-shadow: var(--sh-lg);
       img { display: block; width: 100%; height: auto; }
     }
   `]

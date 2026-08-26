@@ -55,9 +55,11 @@ import { RouterLink } from '@angular/router';
     @media(max-width:650px){ .fw-grid{grid-template-columns:1fr} }
     .fw-card {
       display: block; text-decoration: none;
-      background: var(--obsidian-m); border: 1px solid rgba(255,255,255,.07);
-      border-radius: 18px; padding: 26px; position: relative; transition: all .3s;
-      &:hover { border-color: rgba(201,151,74,.25); transform: translateY(-5px); }
+      background: var(--obsidian-m); border: 1px solid var(--border);
+      border-radius: 18px; padding: 26px; position: relative;
+      box-shadow: var(--sh-sm);
+      transition: all .3s;
+      &:hover { border-color: rgba(201,151,74,.25); transform: translateY(-5px); box-shadow: var(--sh-lg); }
     }
     .fw-badge {
       display: inline-flex; align-items: center; gap: 6px;

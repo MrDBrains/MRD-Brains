@@ -155,13 +155,14 @@ import { RouterLink } from '@angular/router';
     @media(max-width:480px){ .steps-grid{ grid-template-columns: 1fr; } }
 
     .step-card {
-      background: var(--obsidian-m); border: 1px solid rgba(255,255,255,.07);
+      background: var(--obsidian-m); border: 1px solid var(--border);
       border-radius: 20px; padding: 28px 24px;
       display: flex; flex-direction: column; gap: 0;
+      box-shadow: var(--sh-sm);
       transition: all .32s cubic-bezier(.4,0,.2,1); position: relative; overflow: hidden;
       &:hover {
         border-color: rgba(201,151,74,.22); transform: translateY(-6px);
-        box-shadow: 0 24px 56px rgba(0,0,0,.4);
+        box-shadow: var(--sh-lg);
         &::after { opacity: 1; }
       }
       &::after {

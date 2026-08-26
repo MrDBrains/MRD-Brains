@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CountUpDirective } from '../../shared/directives/count-up.directive';
 
 @Component({
   selector: 'app-about',
-  standalone: true, imports: [CommonModule],
+  standalone: true, imports: [CommonModule, CountUpDirective],
   template: `
     <section id="about" class="about">
       <div class="noise"></div>
@@ -111,7 +112,7 @@ import { CommonModule } from '@angular/common';
               <div class="cc-divider"></div>
               <div class="cc-stats-row">
                 <div class="ccsr-item" *ngFor="let s of miniStats">
-                  <span class="ccs-val">{{ s.val }}</span>
+                  <span class="ccs-val" appCountUp [countUpValue]="s.val">{{ s.val }}</span>
                   <span class="ccs-lbl">{{ s.lbl }}</span>
                 </div>
               </div>
@@ -159,10 +160,13 @@ import { CommonModule } from '@angular/common';
       background: linear-gradient(160deg,var(--obsidian-l),var(--obsidian-m));
       border: 1px solid rgba(201,151,74,.14); border-radius: 22px; padding: 40px;
       position: relative; overflow: hidden;
+      box-shadow: var(--sh-lg);
+      transition: box-shadow .35s ease, transform .35s ease;
       &::before {
         content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
         background: linear-gradient(90deg,transparent,rgba(201,151,74,.45),transparent);
       }
+      &:hover { transform: translateY(-3px); box-shadow: 0 12px 20px rgba(16,24,40,.06), 0 32px 64px rgba(200,146,46,.14); }
     }
     .sc-eyebrow {
       display: flex; align-items: center; gap: 10px; margin-bottom: 20px;
@@ -205,9 +209,9 @@ import { CommonModule } from '@angular/common';
     /* Strengths */
     .strengths { display: flex; flex-direction: column; gap: 14px; }
     .strength-item {
-      background: var(--obsidian-m); border: 1px solid rgba(255,255,255,.06);
-      border-radius: 14px; padding: 16px 20px; transition: all .28s;
-      &:hover { border-color: rgba(201,151,74,.18); background: var(--obsidian-l); }
+      background: var(--obsidian-m); border: 1px solid var(--border);
+      border-radius: 14px; padding: 16px 20px; box-shadow: var(--sh-sm); transition: all .28s;
+      &:hover { border-color: rgba(201,151,74,.18); background: var(--obsidian-l); box-shadow: var(--sh-md); }
     }
     .sti-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
     .sti-icon-wrap { flex-shrink: 0; }
@@ -236,10 +240,13 @@ import { CommonModule } from '@angular/common';
       background: linear-gradient(160deg,var(--obsidian-l),var(--obsidian-m));
       border: 1px solid rgba(201,151,74,.16); border-radius: 20px; padding: 26px;
       position: relative; overflow: hidden;
+      box-shadow: var(--sh-md);
+      transition: box-shadow .3s ease, transform .3s ease;
       &::before {
         content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
         background: linear-gradient(90deg,transparent,rgba(201,151,74,.4),transparent);
       }
+      &:hover { transform: translateY(-4px); box-shadow: var(--sh-lg); }
     }
     .cc-top { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
     .cc-logo {
@@ -279,8 +286,8 @@ import { CommonModule } from '@angular/common';
 
     /* Values strip */
     .values-strip {
-      background: var(--obsidian-m); border: 1px solid rgba(255,255,255,.06);
-      border-radius: 20px; padding: 36px;
+      background: var(--obsidian-m); border: 1px solid var(--border);
+      border-radius: 20px; padding: 36px; box-shadow: var(--sh-md);
     }
     .vs-label {
       font-family: var(--f-mono); font-size: .64rem; font-weight: 500; text-transform: uppercase;
@@ -303,39 +310,55 @@ import { CommonModule } from '@angular/common';
 })
 export class AboutComponent {
   timeline = [
-    { year: '2022', title: 'Studio Founded', desc: 'Launched MrD Brains Technology in Khar East, Mumbai, with a focus on custom .NET development.' },
-    { year: '2023', title: 'Cloud & Web Expansion', desc: 'Grew into Angular, React and Azure cloud services. First enterprise ERP delivery.' },
-    { year: '2025', title: 'Vyapar Ledger Launch', desc: 'Released our proprietary jewellery management SaaS platform to 50+ shops.' },
-    { year: '2026', title: 'AI & WhatsApp Automation', desc: 'Launched AI chatbot and WhatsApp Business API automation services for SMEs.' },
+    {
+      year: '2022',
+      title: 'Studio Founded',
+      desc: 'Launched MrD Brains Technology in Khar East, Mumbai, with a focus on custom .NET development and business-focused software solutions.',
+    },
+    {
+      year: '2023',
+      title: 'Cloud & Web Expansion',
+      desc: 'Expanded into Angular, React and Azure cloud technologies, while delivering our first enterprise business and ERP solutions.',
+    },
+    {
+      year: '2025',
+      title: 'Vyapar Ledger — Our Own Product',
+      desc: 'Started building Vyapar Ledger, our proprietary business management platform for billing, inventory, GST, ledger and day-to-day business operations.',
+    },
+    {
+      year: '2026',
+      title: 'AI, Automation & Product Expansion',
+      desc: 'Expanded into AI-powered applications and WhatsApp Business API automation for SMEs, while continuing to evolve Vyapar Ledger across mobile and upcoming Windows experiences.',
+    },
   ];
 
   strengths = [
-    { icon: 'bi bi-cpu-fill',           title: 'Custom Software Development', desc: 'Precision-engineered desktop and web apps built for scale and longevity.', score: 96 },
-    { icon: 'bi bi-cloud-check-fill',   title: 'Cloud & Azure Infrastructure', desc: 'Resilient, secure cloud architecture with 99.9% uptime commitments.', score: 92 },
-    { icon: 'bi bi-robot',              title: 'AI & WhatsApp Automation',     desc: 'Intelligent workflow automation reducing manual effort by 70%+.', score: 89 },
+    { icon: 'bi bi-cpu-fill', title: 'Custom Software Development', desc: 'Precision-engineered desktop and web apps built for scale and longevity.', score: 96 },
+    { icon: 'bi bi-cloud-check-fill', title: 'Cloud & Azure Infrastructure', desc: 'Resilient, secure cloud architecture with 99.9% uptime commitments.', score: 92 },
+    { icon: 'bi bi-robot', title: 'AI & WhatsApp Automation', desc: 'Intelligent workflow automation reducing manual effort by 70%+.', score: 89 },
 
   ];
 
   tech = [
-    { icon: 'bi bi-microsoft',      name: '.NET 8' },
-    { icon: 'bi bi-code-slash',     name: 'Angular' },
-    { icon: 'bi bi-app',            name: 'React' },
-    { icon: 'bi bi-cloud',          name: 'Azure' },
-    { icon: 'bi bi-database',       name: 'SQL Server' },
-    { icon: 'bi bi-server',         name: 'MongoDB' },
+    { icon: 'bi bi-microsoft', name: '.NET 8' },
+    { icon: 'bi bi-code-slash', name: 'Angular' },
+    { icon: 'bi bi-app', name: 'React' },
+    { icon: 'bi bi-cloud', name: 'Azure' },
+    { icon: 'bi bi-database', name: 'SQL Server' },
+    { icon: 'bi bi-server', name: 'MongoDB' },
   ];
 
   miniStats = [
     { val: '15+', lbl: 'Projects' },
-    { val: '5+',  lbl: 'Clients' },
-    { val: '3+',  lbl: 'Years' },
+    { val: '5+', lbl: 'Clients' },
+    { val: '3+', lbl: 'Years' },
     { val: '5.0', lbl: 'Rating' },
   ];
 
   values = [
-    { icon: 'bi bi-gem',              title: 'Craftsmanship',    desc: 'Every feature is deliberate, clean, and built to last beyond launch day.' },
-    { icon: 'bi bi-transparency',     title: 'Transparency',     desc: 'Clear timelines, honest updates, and no surprises on scope or billing.' },
-    { icon: 'bi bi-arrow-up-circle',  title: 'Ownership',        desc: 'We treat your product as if it were ours — with pride and accountability.' },
-    { icon: 'bi bi-lightning-charge', title: 'Speed & Agility',  desc: 'Lean processes that ship fast without compromising on quality or security.' },
+    { icon: 'bi bi-gem', title: 'Craftsmanship', desc: 'Every feature is deliberate, clean, and built to last beyond launch day.' },
+    { icon: 'bi bi-transparency', title: 'Transparency', desc: 'Clear timelines, honest updates, and no surprises on scope or billing.' },
+    { icon: 'bi bi-arrow-up-circle', title: 'Ownership', desc: 'We treat your product as if it were ours — with pride and accountability.' },
+    { icon: 'bi bi-lightning-charge', title: 'Speed & Agility', desc: 'Lean processes that ship fast without compromising on quality or security.' },
   ];
 }

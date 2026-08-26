@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, QueryList, ViewChildren, AfterViewInit, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
@@ -27,18 +27,25 @@ import { RouterLink } from '@angular/router';
         <!-- Featured spotlight -->
         <div class="svc-spotlight" data-aos="fade-up" data-aos-delay="60">
           <!-- Nav tabs -->
-          <div class="spot-tabs">
-            <button class="spot-tab" *ngFor="let s of svcs; let i=index"
+          <div class="spot-tabs" #tabsWrap>
+            <div class="tab-indicator"
+                 [class.wa-indicator]="svcs[cur].isWa"
+                 [style.width.px]="indicatorWidth"
+                 [style.transform]="'translateX(' + indicatorLeft + 'px)'"></div>
+            <button class="spot-tab" *ngFor="let s of svcs; let i=index" #tabBtn
                     [class.active]="i===cur" [class.wa-tab]="s.isWa"
-                    (click)="cur=i">
-              <i [class]="s.icon"></i>
-              <span>{{ s.short }}</span>
+                    (click)="selectTab(i)" (mouseenter)="hoverIdx=i" (mouseleave)="hoverIdx=-1">
+              <span class="tab-icon-wrap" [class.wa-icon-wrap]="s.isWa">
+                <i [class]="s.icon"></i>
+                <span class="tab-icon-pulse" *ngIf="i===cur"></span>
+              </span>
+              <span class="tab-label">{{ s.short }}</span>
               <span class="tab-new" *ngIf="s.isNew">NEW</span>
             </button>
           </div>
 
           <!-- Content pane -->
-          <div class="spot-pane" [class.wa-pane]="svcs[cur].isWa">
+          <div class="spot-pane" [class.wa-pane]="svcs[cur].isWa" [class.pane-out]="transitioning">
             <div class="spot-left">
               <div class="sp-index">{{ (cur+1).toString().padStart(2,'0') }} / {{ svcs.length.toString().padStart(2,'0') }}</div>
               <div class="sp-ico-wrap" [class.sp-wa]="svcs[cur].isWa">
@@ -95,7 +102,7 @@ import { RouterLink } from '@angular/router';
         <div class="svc-grid">
           <div class="svc-card" *ngFor="let s of svcs; let i=index"
                [class.active]="i===cur" [class.wa-card]="s.isWa"
-               (click)="cur=i" data-aos="fade-up" [attr.data-aos-delay]="(i%3)*80">
+               (click)="selectTab(i)" data-aos="zoom-in" [attr.data-aos-delay]="(i%3)*80">
             <div class="scc-inner">
               <div class="scc-top">
                 <div class="scc-icon" [class.scc-wa]="s.isWa"><i [class]="s.icon"></i></div>
@@ -142,32 +149,94 @@ import { RouterLink } from '@angular/router';
 
     /* Tabs */
     .spot-tabs {
-      display: flex; gap: 0; border-bottom: 1px solid rgba(255,255,255,.06);
-      overflow-x: auto; scrollbar-width: none;
+      display: flex; gap: 2px; border-bottom: 1px solid rgba(255,255,255,.06);
+      overflow-x: auto; scrollbar-width: none; position: relative; padding: 0 6px;
+      background: linear-gradient(180deg, rgba(255,255,255,.015), transparent);
       &::-webkit-scrollbar { display: none; }
     }
+    .tab-indicator {
+      position: absolute; bottom: -1px; left: 0; height: 2.5px; border-radius: 3px 3px 0 0;
+      background: linear-gradient(90deg, var(--gold-l), var(--gold) 45%, var(--coral));
+      background-size: 220% 100%;
+      box-shadow: 0 0 10px rgba(201,151,74,.7), 0 0 22px rgba(201,151,74,.3), 0 -6px 16px rgba(201,151,74,.15);
+      transition: transform .5s cubic-bezier(.22,1,.36,1), width .5s cubic-bezier(.22,1,.36,1), background .3s;
+      animation: indicatorFlow 3.2s linear infinite;
+      z-index: 2; pointer-events: none;
+    }
+    .tab-indicator.wa-indicator {
+      background: linear-gradient(90deg,#25D366,#128C7E 45%,#25D366); background-size:220% 100%;
+      box-shadow: 0 0 10px rgba(37,211,102,.6), 0 0 22px rgba(37,211,102,.25), 0 -6px 16px rgba(37,211,102,.12);
+    }
+    @keyframes indicatorFlow { 0%{background-position:0% 0} 100%{background-position:220% 0} }
+
     .spot-tab {
-      display: flex; align-items: center; gap: 7px;
-      padding: 16px 22px; background: none; border: none; cursor: pointer;
+      display: flex; align-items: center; gap: 9px;
+      padding: 15px 20px; background: none; border: none; cursor: pointer;
       font-family: var(--f-head); font-weight: 600; font-size: .78rem;
       color: rgba(237,233,225,.4); white-space: nowrap; position: relative;
-      transition: all .22s; border-bottom: 2px solid transparent; margin-bottom: -1px;
-      i { font-size: .85rem; color: var(--coral); }
-      &.active { color: var(--ghost); border-bottom-color: var(--gold); i{color:var(--gold)} }
-      &.wa-tab.active { border-bottom-color: #25D366; i{color:#25D366} }
-      &:hover:not(.active) { color: var(--ghost-m); }
+      transition: color .3s ease, transform .35s cubic-bezier(.34,1.56,.64,1);
+      margin-bottom: -1px; border-radius: 12px 12px 0 0; isolation: isolate; z-index: 1;
+      &::before {
+        content: ''; position: absolute; inset: 5px 3px 0 3px; border-radius: 10px;
+        background: linear-gradient(180deg, rgba(201,151,74,.1), rgba(201,151,74,.02) 70%, transparent);
+        opacity: 0; transform: translateY(6px) scale(.96); z-index: -1;
+        transition: opacity .32s ease, transform .32s ease;
+      }
+      &:hover::before { opacity: 1; transform: translateY(0) scale(1); }
+      &:hover:not(.active) { color: var(--ghost-m); transform: translateY(-3px); }
+      &:hover .tab-icon-wrap { transform: scale(1.14) rotate(-6deg); box-shadow: 0 8px 18px rgba(201,151,74,.28), 0 0 0 4px rgba(201,151,74,.06); border-color: rgba(201,151,74,.35); i{color:var(--gold)} }
+      &.wa-tab:hover .tab-icon-wrap { box-shadow: 0 8px 18px rgba(37,211,102,.25), 0 0 0 4px rgba(37,211,102,.06); border-color: rgba(37,211,102,.35); i{color:#25D366} }
+      &.active { color: var(--ghost); }
+      &.active .tab-icon-wrap {
+        background: var(--gold-dim); border-color: var(--gold-ring);
+        box-shadow: 0 0 0 4px rgba(201,151,74,.08), 0 8px 20px rgba(201,151,74,.3);
+        i{color:var(--gold)}
+      }
+      &.wa-tab.active .tab-icon-wrap {
+        background: rgba(37,211,102,.12); border-color: rgba(37,211,102,.3);
+        box-shadow: 0 0 0 4px rgba(37,211,102,.08), 0 8px 20px rgba(37,211,102,.3);
+        i{color:#25D366}
+      }
+      &.active .tab-label { text-shadow: 0 0 18px rgba(201,151,74,.35); }
     }
+    .tab-icon-wrap {
+      width: 27px; height: 27px; border-radius: 9px; flex-shrink: 0; position: relative;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.07);
+      transition: all .38s cubic-bezier(.34,1.56,.64,1);
+      i { font-size: .82rem; color: var(--coral); transition: color .3s ease; }
+    }
+    .tab-icon-pulse {
+      position: absolute; inset: -5px; border-radius: 11px;
+      border: 1px solid var(--gold); opacity: .5;
+      animation: tabPulse 2.2s ease-out infinite;
+    }
+    .wa-tab .tab-icon-pulse { border-color: #25D366; }
+    @keyframes tabPulse {
+      0% { transform: scale(.85); opacity: .55; }
+      70% { transform: scale(1.25); opacity: 0; }
+      100% { opacity: 0; }
+    }
+    .tab-label { position: relative; }
     .tab-new {
       background: rgba(37,211,102,.14); border: 1px solid rgba(37,211,102,.25);
       border-radius: 4px; padding: 2px 7px;
       font-family: var(--f-mono); font-size: .56rem; color: #25D366; letter-spacing: .08em;
+      animation: newTabGlow 2.4s ease-in-out infinite;
+    }
+    @keyframes newTabGlow {
+      0%,100% { box-shadow: 0 0 0 rgba(37,211,102,0); }
+      50% { box-shadow: 0 0 10px rgba(37,211,102,.35); }
     }
 
     /* Content pane */
     .spot-pane {
       display: grid; grid-template-columns: 1.2fr 1fr; gap: 0;
       min-height: 440px;
+      transition: opacity .22s ease, transform .22s ease;
+      opacity: 1; transform: translateY(0);
     }
+    .spot-pane.pane-out { opacity: 0; transform: translateY(10px); }
     .spot-pane.wa-pane { background: rgba(37,211,102,.02); }
     @media(max-width:767px){ .spot-pane{grid-template-columns:1fr} }
 
@@ -260,11 +329,18 @@ import { RouterLink } from '@angular/router';
     @media(max-width:991px){ .svc-grid{grid-template-columns:repeat(2,1fr)} }
     @media(max-width:575px){ .svc-grid{grid-template-columns:1fr} }
     .svc-card {
-      background:var(--obsidian-m);border:1px solid rgba(255,255,255,.06);
+      background:var(--obsidian-m);border:1px solid var(--border);
       border-radius:16px;overflow:hidden;cursor:pointer;position:relative;
+      box-shadow:var(--sh-sm);
       transition:all .32s cubic-bezier(.4,0,.2,1);
-      &:hover { border-color:rgba(201,151,74,.2);transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,.35); }
-      &.active { border-color:rgba(201,151,74,.3);background:var(--obsidian-l); .scc-bar{transform:scaleX(1)} }
+      &::after {
+        content:''; position:absolute; top:0; left:-160%; width:55%; height:100%;
+        background:linear-gradient(115deg, transparent, rgba(255,255,255,.06), transparent);
+        transform:skewX(-18deg); transition:left .65s ease; pointer-events:none;
+      }
+      &:hover::after { left:150%; }
+      &:hover { border-color:rgba(201,151,74,.2);transform:translateY(-6px) scale(1.01);box-shadow:var(--sh-lg),0 0 0 1px rgba(201,151,74,.06); }
+      &.active { border-color:rgba(201,151,74,.3);background:var(--obsidian-l);box-shadow:var(--sh-md); .scc-bar{transform:scaleX(1)} }
       &.wa-card { border-color:rgba(37,211,102,.1); &:hover{border-color:rgba(37,211,102,.25)} &.active{border-color:rgba(37,211,102,.3);.scc-bar{background:linear-gradient(90deg,#25D366,#128C7E)}} }
     }
     .scc-inner { padding:24px; }
@@ -273,10 +349,12 @@ import { RouterLink } from '@angular/router';
       width:40px;height:40px;border-radius:10px;
       background:var(--coral-dim);border:1px solid var(--coral-ring);
       display:flex;align-items:center;justify-content:center;flex-shrink:0;
-      transition:all .28s;
-      i{color:var(--coral);font-size:1.15rem}
+      transition:all .38s cubic-bezier(.34,1.56,.64,1);
+      i{color:var(--coral);font-size:1.15rem;transition:color .3s}
+      .svc-card:hover & { transform:scale(1.1) rotate(-5deg); box-shadow:0 8px 18px rgba(232,93,58,.25); }
     }
-    .scc-icon.scc-wa { background:rgba(37,211,102,.08);border-color:rgba(37,211,102,.2); i{color:#25D366} }
+    .scc-icon.scc-wa { background:rgba(37,211,102,.08);border-color:rgba(37,211,102,.2); i{color:#25D366}
+      .svc-card:hover & { box-shadow:0 8px 18px rgba(37,211,102,.22); } }
     .svc-card.active .scc-icon { background:var(--gold-dim);border-color:var(--gold-ring); i{color:var(--gold)} }
     .scc-new {
       display:inline-flex;align-items:center;gap:3px;
@@ -298,8 +376,38 @@ import { RouterLink } from '@angular/router';
     }
   `]
 })
-export class ServicesComponent {
+export class ServicesComponent implements AfterViewInit {
+  @ViewChildren('tabBtn') tabBtns!: QueryList<ElementRef<HTMLButtonElement>>;
   cur = 0;
+  hoverIdx = -1;
+  transitioning = false;
+  indicatorLeft = 0;
+  indicatorWidth = 0;
+
+  ngAfterViewInit() {
+    setTimeout(() => this.updateIndicator());
+    this.tabBtns.changes.subscribe(() => setTimeout(() => this.updateIndicator()));
+  }
+
+  @HostListener('window:resize')
+  onResize() { this.updateIndicator(); }
+
+  selectTab(i: number) {
+    if (i === this.cur) return;
+    this.transitioning = true;
+    this.cur = i;
+    this.updateIndicator();
+    setTimeout(() => (this.transitioning = false), 220);
+  }
+
+  private updateIndicator() {
+    const btns = this.tabBtns?.toArray();
+    if (!btns || !btns[this.cur]) return;
+    const el = btns[this.cur].nativeElement;
+    this.indicatorLeft = el.offsetLeft;
+    this.indicatorWidth = el.offsetWidth;
+  }
+
   svcs = [
     {
       icon: 'bi bi-window', isWa: false, isNew: false,

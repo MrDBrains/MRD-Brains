@@ -227,7 +227,7 @@ import { RouterLink } from '@angular/router';
     .plat-tabs { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 32px; }
     .plat-tab {
       display: flex; align-items: center; gap: 9px;
-      background: var(--obsidian-m); border: 1px solid rgba(255,255,255,.08);
+      background: var(--obsidian-m); border: 1px solid var(--border);
       border-radius: 50px; padding: 12px 20px; cursor: pointer;
       font-family: var(--f-head); font-weight: 700; font-size: .82rem; color: var(--ghost-m);
       transition: all .25s;
@@ -242,8 +242,8 @@ import { RouterLink } from '@angular/router';
     }
     .plat-pane {
       display: grid; grid-template-columns: 1fr 260px; gap: 40px; align-items: center;
-      background: var(--obsidian-m); border: 1px solid rgba(255,255,255,.07);
-      border-radius: 24px; padding: 44px;
+      background: var(--obsidian-m); border: 1px solid var(--border);
+      border-radius: 24px; padding: 44px; box-shadow: var(--sh-lg);
     }
     @media(max-width:900px){ .plat-pane{grid-template-columns:1fr;padding:28px} .pp-right{display:none} }
     .pp-badge {
@@ -278,9 +278,11 @@ import { RouterLink } from '@angular/router';
     @media(max-width:991px){ .ai-grid{grid-template-columns:1fr 1fr} }
     @media(max-width:575px){ .ai-grid{grid-template-columns:1fr} }
     .ai-card {
-      background: var(--obsidian-m); border: 1px solid rgba(255,255,255,.07);
-      border-radius: 18px; padding: 26px; transition: all .3s;
-      &:hover { border-color: rgba(212,168,83,.25); transform: translateY(-5px); }
+      background: var(--obsidian-m); border: 1px solid var(--border);
+      border-radius: 18px; padding: 26px;
+      box-shadow: var(--sh-sm);
+      transition: all .3s;
+      &:hover { border-color: rgba(212,168,83,.25); transform: translateY(-5px); box-shadow: var(--sh-lg); }
     }
     .ai-big { grid-column: span 1; }
     .ai-ico {
@@ -304,9 +306,11 @@ import { RouterLink } from '@angular/router';
     @media(max-width:767px){ .feat-grid{grid-template-columns:repeat(2,1fr)} }
     @media(max-width:480px){ .feat-grid{grid-template-columns:1fr} }
     .feat-card {
-      background: var(--obsidian-m); border: 1px solid rgba(255,255,255,.06);
-      border-radius: 16px; padding: 22px; transition: all .28s;
-      &:hover { border-color: rgba(201,151,74,.2); transform: translateY(-4px); }
+      background: var(--obsidian-m); border: 1px solid var(--border);
+      border-radius: 16px; padding: 22px;
+      box-shadow: var(--sh-sm);
+      transition: all .28s;
+      &:hover { border-color: rgba(201,151,74,.2); transform: translateY(-4px); box-shadow: var(--sh-md); }
     }
     .fc-top { display: flex; align-items: center; gap: 11px; margin-bottom: 14px; }
     .fc-ico {
@@ -324,9 +328,11 @@ import { RouterLink } from '@angular/router';
     @media(max-width:1199px){ .ind-grid{grid-template-columns:repeat(3,1fr)} }
     @media(max-width:767px){ .ind-grid{grid-template-columns:repeat(2,1fr)} }
     .ind-card {
-      background: var(--obsidian-m); border: 1px solid rgba(255,255,255,.06);
-      border-radius: 16px; padding: 20px; text-align: center; transition: all .28s;
-      &:hover { border-color: rgba(232,93,58,.22); transform: translateY(-4px); }
+      background: var(--obsidian-m); border: 1px solid var(--border);
+      border-radius: 16px; padding: 20px; text-align: center;
+      box-shadow: var(--sh-sm);
+      transition: all .28s;
+      &:hover { border-color: rgba(232,93,58,.22); transform: translateY(-4px); box-shadow: var(--sh-md); }
     }
     .ic-ico {
       width: 44px; height: 44px; margin: 0 auto 12px; border-radius: 11px;
@@ -344,8 +350,8 @@ import { RouterLink } from '@angular/router';
     .sec-list { display: flex; flex-direction: column; gap: 14px; }
     .sl-item {
       display: flex; align-items: flex-start; gap: 14px;
-      background: var(--obsidian-m); border: 1px solid rgba(255,255,255,.06);
-      border-radius: 13px; padding: 16px 18px;
+      background: var(--obsidian-m); border: 1px solid var(--border);
+      border-radius: 13px; padding: 16px 18px; box-shadow: var(--sh-sm);
     }
     .sl-ico {
       width: 36px; height: 36px; flex-shrink: 0; border-radius: 9px;
@@ -360,10 +366,12 @@ import { RouterLink } from '@angular/router';
     .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 32px; }
     @media(max-width:900px){ .price-grid{grid-template-columns:1fr;max-width:420px;margin-left:auto;margin-right:auto} }
     .price-card {
-      position: relative; background: var(--obsidian-m); border: 1px solid rgba(255,255,255,.08);
-      border-radius: 20px; padding: 30px 26px; transition: all .3s;
-      &.featured { border-color: rgba(201,151,74,.32); background: linear-gradient(160deg,var(--obsidian-l),var(--obsidian-m)); }
-      &:hover { transform: translateY(-4px); }
+      position: relative; background: var(--obsidian-m); border: 1px solid var(--border);
+      border-radius: 20px; padding: 30px 26px;
+      box-shadow: var(--sh-sm);
+      transition: all .3s;
+      &.featured { border-color: rgba(201,151,74,.32); background: linear-gradient(160deg,var(--obsidian-l),var(--obsidian-m)); box-shadow: 0 0 0 1px rgba(201,151,74,.12), var(--sh-lg); }
+      &:hover { transform: translateY(-4px); box-shadow: var(--sh-lg); }
     }
     .pc-pop {
       position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
@@ -382,9 +390,11 @@ import { RouterLink } from '@angular/router';
     @media(max-width:991px){ .up-grid{grid-template-columns:1fr 1fr} }
     @media(max-width:575px){ .up-grid{grid-template-columns:1fr} }
     .up-card {
-      background: var(--obsidian-m); border: 1px solid rgba(255,255,255,.06);
-      border-radius: 16px; padding: 24px; transition: all .28s;
-      &:hover { border-color: rgba(201,151,74,.2); }
+      background: var(--obsidian-m); border: 1px solid var(--border);
+      border-radius: 16px; padding: 24px;
+      box-shadow: var(--sh-sm);
+      transition: all .28s;
+      &:hover { border-color: rgba(201,151,74,.2); transform: translateY(-3px); box-shadow: var(--sh-md); }
     }
     .up-ico { font-size: 1.6rem; margin-bottom: 12px; display: block; }
     .up-h { font-family: var(--f-head); font-weight: 700; font-size: .92rem; color: var(--ghost); margin-bottom: 8px; }

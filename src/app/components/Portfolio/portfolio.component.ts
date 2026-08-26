@@ -202,7 +202,7 @@ import { RouterLink } from '@angular/router';
           <ng-template #businessGrid>
             <div class="cases-grid">
               <div class="case-card" *ngFor="let c of casesIn('business'); let i=index"
-                   data-aos="fade-up" [attr.data-aos-delay]="i*90">
+                   data-aos="zoom-in" [attr.data-aos-delay]="i*90">
                 <div class="cc-top">
                   <div class="cc-icon" [style.background]="c.iconBg">
                     <i [class]="c.icon" [style.color]="c.iconColor"></i>
@@ -281,7 +281,7 @@ import { RouterLink } from '@angular/router';
           <ng-template #aiGrid>
             <div class="cases-grid">
               <div class="case-card" *ngFor="let c of casesIn('ai'); let i=index"
-                   data-aos="fade-up" [attr.data-aos-delay]="i*90">
+                   data-aos="zoom-in" [attr.data-aos-delay]="i*90">
                 <div class="cc-top">
                   <div class="cc-icon" [style.background]="c.iconBg">
                     <i [class]="c.icon" [style.color]="c.iconColor"></i>
@@ -430,8 +430,8 @@ import { RouterLink } from '@angular/router';
     /* ── Portfolio Snapshot ── */
     .snapshot-bar {
       display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:36px;
-      background:var(--obsidian-m);border:1px solid rgba(255,255,255,.07);
-      border-radius:18px;padding:26px 18px;
+      background:var(--obsidian-m);border:1px solid var(--border);
+      border-radius:18px;padding:26px 18px;box-shadow:var(--sh-md);
     }
     @media(max-width:767px){ .snapshot-bar{grid-template-columns:1fr 1fr;gap:20px 12px} }
     .snap-item { text-align:center; }
@@ -441,7 +441,7 @@ import { RouterLink } from '@angular/router';
     /* ── Filters ── */
     .port-filters { display:flex;flex-wrap:wrap;gap:9px;margin-bottom:40px; }
     .pf-chip {
-      background:var(--obsidian-m);border:1px solid rgba(255,255,255,.08);
+      background:var(--obsidian-m);border:1px solid var(--border);
       border-radius:50px;padding:9px 18px;cursor:pointer;
       font-family:var(--f-mono);font-size:.68rem;color:var(--ghost-d);
       letter-spacing:.04em;transition:all .22s;
@@ -461,7 +461,9 @@ import { RouterLink } from '@angular/router';
       background:linear-gradient(160deg,var(--obsidian-l),var(--obsidian-m));
       border:1px solid rgba(201,151,74,.18);border-radius:24px;
       padding:36px 40px;margin-bottom:48px;position:relative;overflow:hidden;
+      box-shadow:var(--sh-lg);transition:box-shadow .35s ease,transform .35s ease;
       &::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,151,74,.5),transparent)}
+      &:hover{box-shadow:0 12px 20px rgba(16,24,40,.06),0 32px 64px rgba(200,146,46,.14);transform:translateY(-3px);}
     }
     @media(max-width:900px){ .hotel-card{padding:26px} }
     .hc-status {
@@ -568,10 +570,11 @@ import { RouterLink } from '@angular/router';
     @media(max-width:575px){ .cases-grid{grid-template-columns:1fr} }
 
     .case-card {
-      background:var(--obsidian-m);border:1px solid rgba(255,255,255,.07);
+      background:var(--obsidian-m);border:1px solid var(--border);
       border-radius:18px;padding:28px;position:relative;overflow:hidden;
+      box-shadow:var(--sh-sm);
       transition:all .32s cubic-bezier(.4,0,.2,1);
-      &:hover{border-color:rgba(201,151,74,.22);transform:translateY(-6px);box-shadow:0 24px 56px rgba(0,0,0,.4);.cc-bar{transform:scaleX(1)}}
+      &:hover{border-color:rgba(201,151,74,.22);transform:translateY(-6px);box-shadow:var(--sh-lg);.cc-bar{transform:scaleX(1)}}
     }
     .cc-top { display:flex;align-items:center;justify-content:space-between;margin-bottom:14px; }
     .cc-icon {

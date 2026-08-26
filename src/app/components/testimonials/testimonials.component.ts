@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CountUpDirective } from '../../shared/directives/count-up.directive';
 import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-testimonials',
-  standalone: true, imports: [CommonModule, RouterLink],
+  standalone: true, imports: [CommonModule, RouterLink, CountUpDirective],
   template: `
     <section class="testi-sec">
       <div class="noise"></div>
@@ -48,7 +49,7 @@ import { RouterLink } from '@angular/router';
           </div>
           <div class="th-right">
             <div class="th-metric" *ngFor="let m of heroMetrics">
-              <div class="thm-val">{{ m.val }}</div>
+              <div class="thm-val" appCountUp [countUpValue]="m.val">{{ m.val }}</div>
               <div class="thm-lbl">{{ m.lbl }}</div>
               <div class="thm-desc">{{ m.desc }}</div>
             </div>
@@ -182,10 +183,11 @@ import { RouterLink } from '@angular/router';
     @media(max-width:991px){ .testi-grid{grid-template-columns:1fr 1fr} }
     @media(max-width:575px){ .testi-grid{grid-template-columns:1fr} }
     .testi-card {
-      background:var(--obsidian-l);border:1px solid rgba(255,255,255,.07);
+      background:var(--obsidian-l);border:1px solid var(--border);
       border-radius:18px;padding:26px;position:relative;overflow:hidden;
+      box-shadow:var(--sh-sm);
       transition:all .32s cubic-bezier(.4,0,.2,1);
-      &:hover{border-color:rgba(201,151,74,.2);transform:translateY(-5px);box-shadow:0 22px 56px rgba(0,0,0,.42)}
+      &:hover{border-color:rgba(201,151,74,.2);transform:translateY(-5px);box-shadow:var(--sh-lg)}
     }
     .tc-header { display:flex;align-items:center;justify-content:space-between;margin-bottom:16px; }
     .tc-stars { i{color:var(--gold);font-size:.7rem;margin-right:1px} }

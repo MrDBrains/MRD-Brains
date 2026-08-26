@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CountUpDirective } from '../../shared/directives/count-up.directive';
 
 @Component({
   selector: 'app-team',
-  standalone: true, imports: [CommonModule],
+  standalone: true, imports: [CommonModule, CountUpDirective],
   template: `
     <section id="team" class="team-sec">
       <div class="noise"></div>
@@ -35,7 +36,7 @@ import { CommonModule } from '@angular/common';
               </div>
               <div class="tc-socials">
                 <a *ngFor="let s of m.socials" href="#" (click)="$event.preventDefault()">
-                  <i [class]="s.icon"></i>
+                  <!-- <i [class]="s.icon"></i> -->
                 </a>
               </div>
             </div>
@@ -51,7 +52,7 @@ import { CommonModule } from '@angular/common';
             </div>
             <div class="tc-footer">
               <div class="tcf-stat" *ngFor="let s of m.stats">
-                <span class="tcfs-val">{{ s.val }}</span>
+                <span class="tcfs-val" appCountUp [countUpValue]="s.val">{{ s.val }}</span>
                 <span class="tcfs-lbl">{{ s.lbl }}</span>
               </div>
             </div>
@@ -93,12 +94,13 @@ import { CommonModule } from '@angular/common';
     @media(max-width:575px){ .team-grid{grid-template-columns:1fr} }
 
     .team-card {
-      background:var(--obsidian-l);border:1px solid rgba(255,255,255,.07);
+      background:var(--obsidian-l);border:1px solid var(--border);
       border-radius:22px;overflow:hidden;position:relative;
+      box-shadow:var(--sh-sm);
       transition:all .38s cubic-bezier(.4,0,.2,1);
       &:hover {
         border-color:rgba(201,151,74,.22);transform:translateY(-7px);
-        box-shadow:0 28px 72px rgba(0,0,0,.5);
+        box-shadow:var(--sh-lg);
         .tc-shimmer{opacity:1}
         .tc-av-ring{animation:pulseRing 2.2s ease-out infinite}
         .tc-bottom-bar{transform:scaleX(1)}
@@ -176,8 +178,8 @@ import { CommonModule } from '@angular/common';
 
     /* Culture strip */
     .culture-strip {
-      background:var(--obsidian-m);border:1px solid rgba(255,255,255,.06);
-      border-radius:22px;padding:44px;
+      background:var(--obsidian-m);border:1px solid var(--border);
+      border-radius:22px;padding:44px;box-shadow:var(--sh-md);
     }
     .cs-header { margin-bottom:36px; }
     .cs-title {
@@ -201,29 +203,64 @@ import { CommonModule } from '@angular/common';
   `]
 })
 export class TeamComponent {
-  team = [
-    {
-      init: 'V', name: 'Vikas Seth', role: 'Founder & CEO',
-      bio: 'Visionary entrepreneur with 5+ years in technology and business strategy. Vikas drives client relationships, business development and the long-term vision of MrD Brains Technology.',
-      skills: ['Business Strategy', '.NET', 'Azure', 'Leadership'],
-      socials: [{ icon: 'bi bi-linkedin' }, { icon: 'bi bi-twitter-x' }],
-      stats: [{ val: '5+', lbl: 'Yrs Exp' }, { val: '15+', lbl: 'Projects' }, { val: '5+', lbl: 'Clients' }],
-    },
-    {
-      init: 'A', name: 'Adarsh Dubey', role: 'Co-Founder & CTO',
-      bio: 'Full-stack architect specialising in .NET Core, Angular and Azure cloud. Adarsh leads technical architecture decisions, code quality standards and infrastructure strategy across all client projects.',
-      skills: ['.NET 8', 'Angular 17', 'Azure', 'SQL Server'],
-      socials: [{ icon: 'bi bi-linkedin' }, { icon: 'bi bi-github' }],
-      stats: [{ val: '7+', lbl: 'Yrs Dev' }, { val: '50+', lbl: 'Modules' }, { val: '3', lbl: 'Certs' }],
-    },
-    {
-      init: 'D', name: 'Engineering Team', role: 'Software Engineers & Designers',
-      bio: 'A talented multidisciplinary team of developers, UI/UX designers and QA engineers — each bringing deep domain expertise and a shared commitment to shipping software that makes a real difference.',
-      skills: ['React', 'TypeScript', 'UI/UX', 'QA Testing'],
-      socials: [{ icon: 'bi bi-linkedin' }, { icon: 'bi bi-github' }],
-      stats: [{ val: '3+', lbl: 'Engineers' }, { val: '200+', lbl: 'Hrs/mo' }, { val: '99%', lbl: 'On-time' }],
-    },
-  ];
+ team = [
+  {
+    init: 'M',
+    icon: 'bi bi-code-slash',
+    name: 'MrD Brains Team',
+    role: 'Technology & Engineering',
+
+    bio: 'A multidisciplinary technology team focused on building reliable, scalable and business-driven digital solutions. Our engineers, designers and technology specialists work across custom software, cloud solutions, AI and automation to turn real business requirements into production-ready systems.',
+
+    skills: ['.NET / C#', 'Angular', 'Azure', 'AI & Automation'],
+
+    socials: [],
+
+    stats: [
+      { val: '20+', lbl: 'Projects' },
+      { val: '5+', lbl: 'Clients' },
+      { val: 'Live', lbl: 'Systems' }
+    ],
+  },
+
+  {
+    init: 'D',
+    icon: 'bi bi-window-stack',
+    name: 'Digital Products',
+    role: 'Web, Mobile & Business Platforms',
+
+    bio: 'We design and develop complete digital products — from responsive websites and mobile applications to hotel booking engines, admin panels, dashboards and business management platforms used in real-world operations.',
+
+    skills: ['Web Apps', 'Mobile Apps', 'Admin Panels', 'ERP / SaaS'],
+
+    socials: [],
+
+    stats: [
+      { val: '20+', lbl: 'Deliveries' },
+      { val: 'Multiple', lbl: 'Industries' },
+      { val: 'E2E', lbl: 'Development' }
+    ],
+  },
+
+  {
+    init: 'P',
+    icon: 'bi bi-robot',
+    name: 'Product & Innovation',
+    role: 'AI, Automation & Products',
+
+    bio: 'Our product and innovation practice focuses on proprietary platforms, AI-powered applications and business automation. We build practical technology that helps businesses simplify operations, improve customer engagement and scale efficiently.',
+
+    skills: ['AI Solutions', 'WhatsApp API', 'Automation', 'Cloud'],
+
+    socials: [],
+
+    stats: [
+      { val: 'AI', lbl: 'Solutions' },
+      { val: 'Live', lbl: 'Automations' },
+      { val: '2+', lbl: 'Products' }
+    ],
+  },
+];
 
   culture = [
     { icon: 'bi bi-code-square',         title: 'Clean Code Culture',     desc: 'We write readable, maintainable code that future developers will thank us for.' },

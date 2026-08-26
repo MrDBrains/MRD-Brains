@@ -151,16 +151,17 @@ import { RouterLink } from '@angular/router';
 
     /* Card */
     .p-card {
-      background:var(--obsidian-m);border:1px solid rgba(255,255,255,.08);
+      background:var(--obsidian-m);border:1px solid var(--border);
       border-radius:22px;padding:32px 26px;position:relative;
       display:flex;flex-direction:column;gap:0;
+      box-shadow:var(--sh-sm);
       transition:all .32s cubic-bezier(.4,0,.2,1);
-      &:not(.featured):hover{border-color:rgba(201,151,74,.22);transform:translateY(-5px);box-shadow:0 28px 60px rgba(0,0,0,.4)}
+      &:not(.featured):hover{border-color:rgba(201,151,74,.22);transform:translateY(-5px);box-shadow:var(--sh-lg)}
     }
     .p-card.featured {
       background:linear-gradient(160deg,var(--obsidian-l),var(--obsidian-m));
       border-color:rgba(201,151,74,.32);
-      box-shadow:0 0 0 1px rgba(201,151,74,.1),0 32px 80px rgba(0,0,0,.5);
+      box-shadow:0 0 0 1px rgba(201,151,74,.12),var(--sh-lg);
       &::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
     }
     @media(min-width:992px){
@@ -243,8 +244,8 @@ import { RouterLink } from '@angular/router';
 
     /* Comparison table */
     .compare-wrap {
-      background:var(--obsidian-m);border:1px solid rgba(255,255,255,.07);
-      border-radius:20px;overflow:hidden;margin-bottom:48px;
+      background:var(--obsidian-m);border:1px solid var(--border);
+      border-radius:20px;overflow:hidden;margin-bottom:48px;box-shadow:var(--sh-md);
     }
     .compare-header { padding:26px 28px;border-bottom:1px solid rgba(255,255,255,.06); }
     .ch-title { font-family:var(--f-head);font-weight:800;font-size:1.05rem;color:var(--ghost);margin-bottom:3px; }
@@ -284,7 +285,7 @@ import { RouterLink } from '@angular/router';
     .faq-grid { display:grid;grid-template-columns:1fr 1fr;gap:10px; }
     @media(max-width:767px){ .faq-grid{grid-template-columns:1fr} }
     .faq-item {
-      background:var(--obsidian-m);border:1px solid rgba(255,255,255,.07);
+      background:var(--obsidian-m);border:1px solid var(--border);
       border-radius:13px;cursor:pointer;transition:all .22s;
       &:hover,.open{border-color:rgba(201,151,74,.2);background:var(--obsidian-l)}
     }

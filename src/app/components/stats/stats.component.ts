@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CountUpDirective } from '../../shared/directives/count-up.directive';
 
 @Component({
   selector: 'app-stats',
-  standalone: true, imports: [CommonModule],
+  standalone: true, imports: [CommonModule, CountUpDirective],
   template: `
     <section class="stats-sec">
       <div class="stats-glow"></div>
@@ -15,7 +16,7 @@ import { CommonModule } from '@angular/common';
                data-aos="fade-up" [attr.data-aos-delay]="i*70">
             <div class="sii-icon"><i [class]="s.icon"></i></div>
             <div class="sii-body">
-              <div class="sii-val">{{ s.val }}</div>
+              <div class="sii-val" appCountUp [countUpValue]="s.val">{{ s.val }}</div>
               <div class="sii-lbl">{{ s.label }}</div>
               <div class="sii-sub">{{ s.sub }}</div>
             </div>
@@ -76,7 +77,7 @@ import { CommonModule } from '@angular/common';
     }
     @media(max-width:400px){ .sii-icon{display:none} }
     .sii-val {
-      font-family:var(--f-head);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;
+      font-family:var(--f-head);font-size:clamp(1.0rem,2vw,1.2rem);font-weight:800;
       background:linear-gradient(135deg,var(--ghost),rgba(237,233,225,.6));
       -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
       line-height:1;margin-bottom:4px;
