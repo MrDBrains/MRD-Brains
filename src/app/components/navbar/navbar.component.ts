@@ -26,7 +26,7 @@ import { filter } from 'rxjs/operators';
         <div class="nav-row">
 
           <!-- Brand -->
-          <a class="brand" (click)="go('/')">
+          <a class="brand" routerLink="/" (click)="go('/')">
             <div class="brand-mark">
               <img src="assets/logo.png" alt="MrD Brains">
               <div class="brand-mark-ring"></div>
@@ -39,7 +39,7 @@ import { filter } from 'rxjs/operators';
 
           <ul class="links">
             <li *ngFor="let l of links">
-              <a (click)="go(l.route)" [class.active]="cur===l.route">
+              <a [routerLink]="l.route" (click)="go(l.route)" [class.active]="cur===l.route">
                 <span class="lbl">{{ l.label }}</span>
               </a>
             </li>
@@ -50,7 +50,7 @@ import { filter } from 'rxjs/operators';
               <span class="ns-dot"></span>
               <span>Available for projects</span>
             </div>
-            <a class="btn-gold nav-cta d-none d-lg-inline-flex" (click)="go('/contact')">
+            <a class="btn-gold nav-cta d-none d-lg-inline-flex" routerLink="/contact" (click)="go('/contact')">
               Let's Talk <i class="bi bi-arrow-up-right"></i>
             </a>
             <button class="burger" [class.open]="open" (click)="toggle()" aria-label="Menu">
@@ -78,7 +78,7 @@ import { filter } from 'rxjs/operators';
         <span>Available for new projects — Mumbai</span>
       </div>
       <nav class="dr-links">
-        <a *ngFor="let l of links" (click)="go(l.route)">
+        <a *ngFor="let l of links" [routerLink]="l.route" (click)="go(l.route)">
           <div class="dla-left">
             <span>{{ l.label }}</span>
             <small *ngIf="l.sub">{{ l.sub }}</small>
@@ -87,7 +87,7 @@ import { filter } from 'rxjs/operators';
         </a>
       </nav>
       <div class="dr-footer">
-        <a class="btn-gold" style="justify-content:center" (click)="go('contact')">
+        <a class="btn-gold" style="justify-content:center" routerLink="/contact" (click)="go('/contact')">
           Start a Project <i class="bi bi-arrow-right"></i>
         </a>
         <div class="dr-contact">

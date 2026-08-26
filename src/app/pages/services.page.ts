@@ -1,6 +1,8 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Title, Meta } from '@angular/platform-browser';
+import { CanonicalService } from '../shared/services/canonical.service';
+import { Router } from '@angular/router';
 import { ServicesComponent } from '../components/services/services.component';
 import { PageHeroComponent } from '../components/page-hero/page-hero.component';
 
@@ -26,8 +28,11 @@ export class ServicesPageComponent implements OnInit {
     @Inject(PLATFORM_ID) private pid: object,
     private titleSrv: Title,
     private metaSrv: Meta,
+    private canonicalSrv: CanonicalService,
+    private router: Router,
   ) {}
   ngOnInit() {
+    this.canonicalSrv.setCanonical('/services');
     this.titleSrv.setTitle('Software Development Services | MrD Brains');
     this.metaSrv.updateTag({
       name: 'description',
@@ -38,5 +43,5 @@ export class ServicesPageComponent implements OnInit {
       if (typeof AOS !== 'undefined') AOS.refresh();
     }
   }
-  nav(path: string) { window.location.href = path; }
+  nav(path: string) { this.router.navigate([path]); }
 }

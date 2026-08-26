@@ -44,7 +44,7 @@ import { RouterLink } from '@angular/router';
               <i class="bi bi-file-earmark-check-fill"></i>
               <p>
                 These Terms of Service govern your use of the MrD Brains Technology website
-                (<strong>mrdbrainstech.com</strong>) and all services we provide. By engaging
+                (<strong>mrdbrains.com</strong>) and all services we provide. By engaging
                 our services or using our website, you agree to these terms.
                 These terms are governed by the laws of <strong>India</strong>,
                 with jurisdiction in <strong>Mumbai, Maharashtra</strong>.
@@ -170,7 +170,7 @@ import { RouterLink } from '@angular/router';
 
             <div class="legal-section" id="website-use">
               <h2>10. Website Use</h2>
-              <p>By using mrdbrainstech.com you agree to:</p>
+              <p>By using mrdbrains.com you agree to:</p>
               <ul>
                 <li>Use the website only for lawful purposes</li>
                 <li>Not attempt to gain unauthorised access to any part of our systems</li>

@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Title, Meta } from '@angular/platform-browser';
+import { CanonicalService } from '../shared/services/canonical.service';
 import { Router } from '@angular/router';
 import { TestimonialsComponent } from '../components/testimonials/testimonials.component';
 import { PortfolioComponent } from '../components/Portfolio/portfolio.component';
@@ -36,9 +37,11 @@ export class WorkPageComponent implements OnInit {
     @Inject(PLATFORM_ID) private pid: object,
     private titleSrv: Title,
     private metaSrv: Meta,
+    private canonicalSrv: CanonicalService,
     private router: Router,
   ) {}
   ngOnInit() {
+    this.canonicalSrv.setCanonical('/work');
     this.titleSrv.setTitle('Our Work | MrD Brains — Web, Booking & Business Solutions');
     this.metaSrv.updateTag({
       name: 'description',

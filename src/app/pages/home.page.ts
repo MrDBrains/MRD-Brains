@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Title, Meta } from '@angular/platform-browser';
+import { CanonicalService } from '../shared/services/canonical.service';
 import { HeroComponent } from '../components/hero/hero.component';
 import { MumbaiStripComponent } from '../components/mumbaiStrip/mumbai-strip.component';
 import { StatsComponent } from '../components/stats/stats.component';
@@ -41,8 +42,10 @@ export class HomePageComponent implements OnInit {
     @Inject(PLATFORM_ID) private pid: object,
     private titleSrv: Title,
     private metaSrv: Meta,
+    private canonicalSrv: CanonicalService,
   ) {}
   ngOnInit() {
+    this.canonicalSrv.setCanonical('/');
     this.titleSrv.setTitle('MrD Brains | Software Development & Digital Solutions');
     this.metaSrv.updateTag({
       name: 'description',

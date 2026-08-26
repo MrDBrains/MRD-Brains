@@ -1,6 +1,8 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Title, Meta } from '@angular/platform-browser';
+import { CanonicalService } from '../shared/services/canonical.service';
+import { Router } from '@angular/router';
 import { TeamComponent } from '../components/team/team.component';
 import { AboutComponent } from '../components/about/about.component';
 import { OurStoryComponent } from '../components/ourStory/our-story.component';
@@ -39,8 +41,11 @@ export class AboutPageComponent implements OnInit {
     @Inject(PLATFORM_ID) private pid: object,
     private titleSrv: Title,
     private metaSrv: Meta,
+    private canonicalSrv: CanonicalService,
+    private router: Router,
   ) {}
   ngOnInit() {
+    this.canonicalSrv.setCanonical('/about');
     this.titleSrv.setTitle('About MrD Brains | Technology Partner for Real Businesses');
     this.metaSrv.updateTag({
       name: 'description',
@@ -51,5 +56,5 @@ export class AboutPageComponent implements OnInit {
       if (typeof AOS !== 'undefined') AOS.refresh();
     }
   }
-  nav(path: string) { window.location.href = path; }
+  nav(path: string) { this.router.navigate([path]); }
 }
