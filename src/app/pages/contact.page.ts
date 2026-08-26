@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Title, Meta } from '@angular/platform-browser';
 import { ContactComponent } from '../components/contact/contact.component';
 
 
@@ -96,8 +97,17 @@ export class ContactPageComponent implements OnInit {
     { icon: 'bi bi-telephone-fill',      text: 'Free discovery call' },
     { icon: 'bi bi-currency-rupee',      text: 'Fixed-price proposals' },
   ];
-  constructor(@Inject(PLATFORM_ID) private pid: object) {}
+  constructor(
+    @Inject(PLATFORM_ID) private pid: object,
+    private titleSrv: Title,
+    private metaSrv: Meta,
+  ) {}
   ngOnInit() {
+    this.titleSrv.setTitle('Contact MrD Brains | Start a Software Project');
+    this.metaSrv.updateTag({
+      name: 'description',
+      content: 'Tell us what you\'re trying to solve — our team will help you identify the right technology approach for your business.',
+    });
     if (isPlatformBrowser(this.pid)) {
       window.scrollTo(0, 0);
       if (typeof AOS !== 'undefined') AOS.refresh();

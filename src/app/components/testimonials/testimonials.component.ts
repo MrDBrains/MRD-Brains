@@ -17,13 +17,9 @@ import { RouterLink } from '@angular/router';
             <h2 class="sec-h2">What Our <em>Clients</em> Say</h2>
           </div>
           <div class="testi-aggregate">
-            <div class="ta-score">5.0</div>
             <div class="ta-right">
-              <div class="ta-stars">
-                <i class="bi bi-star-fill" *ngFor="let s of [1,2,3,4,5]"></i>
-              </div>
-              <div class="ta-label">Average rating across all projects</div>
-              <div class="ta-count">Based on 5+ verified client reviews</div>
+              <div class="ta-label">Trusted by businesses across multiple industries</div>
+              <div class="ta-count">Selected client feedback</div>
             </div>
           </div>
         </div>
@@ -48,9 +44,6 @@ import { RouterLink } from '@angular/router';
                   <i class="bi bi-folder-fill"></i> HR & Payroll Desktop System (.NET)
                 </div>
               </div>
-              <div class="th-stars">
-                <i class="bi bi-star-fill" *ngFor="let s of [1,2,3,4,5]"></i>
-              </div>
             </div>
           </div>
           <div class="th-right">
@@ -67,9 +60,8 @@ import { RouterLink } from '@angular/router';
           <div class="testi-card" *ngFor="let t of list; let i=index"
                data-aos="fade-up" [attr.data-aos-delay]="i*80">
             <div class="tc-header">
-              <div class="tc-stars"><i class="bi bi-star-fill" *ngFor="let s of [1,2,3,4,5]"></i></div>
               <div class="tc-platform">
-                <i class="bi bi-patch-check-fill"></i> Verified Client
+                <i class="bi bi-chat-quote-fill"></i> Client Feedback
               </div>
             </div>
             <p class="tc-text">"{{ t.text }}"</p>

@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Title, Meta } from '@angular/platform-browser';
 import { TeamComponent } from '../components/team/team.component';
 import { AboutComponent } from '../components/about/about.component';
 import { OurStoryComponent } from '../components/ourStory/our-story.component';
@@ -86,8 +87,17 @@ declare const AOS: any;
   `]
 })
 export class AboutPageComponent implements OnInit {
-  constructor(@Inject(PLATFORM_ID) private pid: object) {}
+  constructor(
+    @Inject(PLATFORM_ID) private pid: object,
+    private titleSrv: Title,
+    private metaSrv: Meta,
+  ) {}
   ngOnInit() {
+    this.titleSrv.setTitle('About MrD Brains | Technology Partner for Real Businesses');
+    this.metaSrv.updateTag({
+      name: 'description',
+      content: 'MrD Brains is a Mumbai-based technology partner building custom software, hospitality platforms and business applications for real businesses.',
+    });
     if (isPlatformBrowser(this.pid)) {
       window.scrollTo(0, 0);
       if (typeof AOS !== 'undefined') AOS.refresh();

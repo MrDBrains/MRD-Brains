@@ -264,9 +264,9 @@ export class MumbaiStripComponent {
   ];
 
   cityStats = [
-    { val: '3+',  lbl: 'Years' },
-    { val: '15+', lbl: 'Projects' },
-    { val: '5★',  lbl: 'Rated' },
+    { val: '20+', lbl: 'Projects' },
+    { val: '5+',  lbl: 'Clients' },
+    { val: 'Multiple', lbl: 'Industries' },
   ];
 
   whyLocal = [

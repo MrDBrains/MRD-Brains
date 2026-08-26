@@ -16,7 +16,7 @@ import { CommonModule } from '@angular/common';
         <div class="launch-banner" data-aos="fade-down">
           <div class="lb-pulse"></div>
           <i class="bi bi-rocket-takeoff-fill"></i>
-          <span>New Product Launch — 2025</span>
+          <span>Proprietary Product</span>
           <div class="lb-line"></div>
           <span class="lb-sub">by MrD Brains Technology</span>
         </div>
@@ -28,7 +28,7 @@ import { CommonModule } from '@angular/common';
               <span class="vlt-1">Vyapar</span>
               <span class="vlt-2"><em>Ledger</em></span>
             </h2>
-            <p class="vl-tagline">India's smartest jewellery shop management platform — crafted for the modern bullion trader.</p>
+            <p class="vl-tagline">A complete business management platform — billing, GST, inventory, ledger, expenses, reports and AI-powered insights, all in one place.</p>
 
             <div class="vl-feats">
               <div class="vf-row" *ngFor="let f of feats; let i=index"
@@ -123,7 +123,7 @@ import { CommonModule } from '@angular/common';
                 <img src="assets/logo.png" alt="">
                 <span>MrD Brains</span>
               </div>
-              <p>Built for India's jewellery trade. Trusted by shop owners across Mumbai.</p>
+              <p>Built for Indian businesses — GST-ready, mobile-first and backed by MrD Brains Technology.</p>
               <a href="https://www.vyaparledger.com" target="_blank" class="vmcta-link">
                 vyaparledger.com <i class="bi bi-arrow-up-right"></i>
               </a>
@@ -282,26 +282,27 @@ import { CommonModule } from '@angular/common';
 })
 export class VyaparLedgerComponent {
   feats=[
-    {icon:'bi bi-journal-text',label:'Gold & Silver Ledger',desc:'Track all metal transactions with complete history.'},
-    {icon:'bi bi-people-fill',label:'Customer Management',desc:'Profiles, dues, purchase history & reminders.'},
-    {icon:'bi bi-receipt',label:'GST Billing & Invoices',desc:'One-tap GST-compliant invoice generation.'},
-    {icon:'bi bi-graph-up-arrow',label:'Live Rate Tracking',desc:'Real-time gold & silver rates, always current.'},
-    {icon:'bi bi-phone-fill',label:'Android Mobile App',desc:'Full-featured APK — available free to download.'},
-    {icon:'bi bi-cloud-check-fill',label:'Cloud Sync & Backup',desc:'All data safely synced and securely backed up.'},
+    {icon:'bi bi-receipt',label:'Billing & GST',desc:'One-tap GST-compliant invoice generation and billing.'},
+    {icon:'bi bi-journal-text',label:'Ledger',desc:'Track all transactions with complete history.'},
+    {icon:'bi bi-boxes',label:'Inventory',desc:'Stock tracking with real-time quantity updates.'},
+    {icon:'bi bi-cash-stack',label:'Expenses',desc:'Record and categorise business expenses effortlessly.'},
+    {icon:'bi bi-bar-chart-line',label:'Reports',desc:'Sales, GST and business reports generated automatically.'},
+    {icon:'bi bi-stars',label:'AI-Powered Insights',desc:'AI-assisted analytics that help you understand your business.'},
   ];
   rows=[
-    {c:'#F46B4A',l:'Gold Rate (22K)',v:'₹6,420/g'},
-    {c:'#4ade80',l:'Pending Orders',v:'7 items'},
+    {c:'#F46B4A',l:'GST This Month',v:'₹42,800'},
+    {c:'#4ade80',l:'Pending Invoices',v:'7 items'},
     {c:'#D4A853',l:'Active Customers',v:'142'},
   ];
   plats=[
-    {icon:'bi bi-android2',label:'Android APK'},
-    {icon:'bi bi-globe2',label:'Web App'},
-    {icon:'bi bi-star-fill',label:'Free to Start'},
+    {icon:'bi bi-globe2',label:'Web — Available'},
+    {icon:'bi bi-android2',label:'Android — Available'},
+    {icon:'bi bi-stars',label:'AI — Available'},
+    {icon:'bi bi-windows',label:'Windows — Coming Soon'},
   ];
   metrics=[
-    {icon:'bi bi-shop',val:'50+',lbl:'Jewellery Shops'},
-    {icon:'bi bi-receipt',val:'1K+',lbl:'Invoices Generated'},
-    {icon:'bi bi-star-fill',val:'4.9★',lbl:'App Rating'},
+    {icon:'bi bi-globe2',val:'Web',lbl:'Available Now'},
+    {icon:'bi bi-android2',val:'Android',lbl:'Available Now'},
+    {icon:'bi bi-windows',val:'Windows',lbl:'Coming Soon'},
   ];
 }

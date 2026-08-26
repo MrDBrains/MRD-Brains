@@ -1,7 +1,8 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Title, Meta } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { TestimonialsComponent } from '../components/testimonials/testimonials.component';
-import { VyaparLedgerComponent } from '../components/vyapar-ledger/vyapar-ledger.component';
 import { PortfolioComponent } from '../components/Portfolio/portfolio.component';
 
 declare const AOS: any;
@@ -9,22 +10,24 @@ declare const AOS: any;
 @Component({
   selector: 'app-work-page',
   standalone: true,
-  imports: [CommonModule, PortfolioComponent, VyaparLedgerComponent, TestimonialsComponent],
+  imports: [CommonModule, PortfolioComponent, TestimonialsComponent],
   template: `
     <div class="page-hero">
       <div class="ph-glow"></div>
       <div class="ph-grid"></div>
       <div class="container" style="position:relative;z-index:2">
         <div class="ph-inner">
-          <div class="eyebrow">Our Work</div>
+          <div class="eyebrow">Selected Work</div>
           <h1 class="ph-title">
-            Real Projects.<br>
-            <em>Real Results.</em>
+            Built for Business.<br>
+            <em>Proven in Production.</em>
           </h1>
           <p class="ph-desc">
-            From enterprise ERP systems to AI WhatsApp bots —
-            here's what we've built for businesses like yours.
+            Explore the digital platforms, business applications and technology solutions
+            we've built for clients across hospitality, education, enterprise and emerging
+            technology.
           </p>
+          <div class="ph-small">Live projects · Ongoing engagements · Proprietary products</div>
           <div class="ph-breadcrumb">
             <a (click)="nav('/')">Home</a>
             <span>/</span>
@@ -34,7 +37,6 @@ declare const AOS: any;
       </div>
     </div>
     <app-portfolio></app-portfolio>
-    <app-vyapar-ledger></app-vyapar-ledger>
     <app-testimonials></app-testimonials>
   `,
   styles: [`
@@ -67,6 +69,10 @@ declare const AOS: any;
       font-size: 1rem; font-weight: 300; color: var(--ghost-d);
       line-height: 1.8; max-width: 500px; margin: 0 auto 24px;
     }
+    .ph-small {
+      font-family: var(--f-mono); font-size: .64rem; color: var(--gold);
+      letter-spacing: .08em; text-transform: uppercase; margin-bottom: 20px;
+    }
     .ph-breadcrumb {
       display: inline-flex; align-items: center; gap: 10px;
       font-family: var(--f-mono); font-size: .62rem;
@@ -77,12 +83,22 @@ declare const AOS: any;
   `]
 })
 export class WorkPageComponent implements OnInit {
-  constructor(@Inject(PLATFORM_ID) private pid: object) {}
+  constructor(
+    @Inject(PLATFORM_ID) private pid: object,
+    private titleSrv: Title,
+    private metaSrv: Meta,
+    private router: Router,
+  ) {}
   ngOnInit() {
+    this.titleSrv.setTitle('Our Work | MrD Brains — Web, Booking & Business Solutions');
+    this.metaSrv.updateTag({
+      name: 'description',
+      content: 'Explore live websites, hotel booking platforms, admin panels, business applications, AI solutions and proprietary products built by MrD Brains.',
+    });
     if (isPlatformBrowser(this.pid)) {
       window.scrollTo(0, 0);
       if (typeof AOS !== 'undefined') AOS.refresh();
     }
   }
-  nav(path: string) { window.location.href = path; }
+  nav(path: string) { this.router.navigate([path]); }
 }

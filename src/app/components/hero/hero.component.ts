@@ -31,25 +31,23 @@ import { RouterLink } from '@angular/router';
               </div>
               <div class="he-div"></div>
               <div class="he-rating">
-                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                <span>5.0 / 5.0</span>
+                <i class="bi bi-cpu"></i>
+                <span>Digital Engineering &amp; Software Solutions</span>
               </div>
             </div>
 
             <!-- Headline -->
             <h1 class="hero-h1">
-              <span class="h1-we animate-in" style="animation-delay:.18s">We Craft</span>
+              <span class="h1-we animate-in" style="animation-delay:.18s">We Build Technology</span>
               <span class="h1-word animate-in" style="animation-delay:.3s">
-                <em>{{ typed }}</em><span class="caret" [class.show]="caretVis"></span>
+                That Works for <em>Real Businesses.</em>
               </span>
-              <span class="h1-soft animate-in" style="animation-delay:.42s">Software.</span>
             </h1>
 
             <p class="hero-desc animate-in" style="animation-delay:.52s">
-              MrD Brains Technology is Mumbai's premier custom software studio.
-              We design and deliver scalable <strong>.NET, Angular &amp; React</strong> solutions,
-              enterprise IT infrastructure, and next-generation <strong>AI &amp; WhatsApp automation</strong>
-              — precisely engineered for businesses ready to grow.
+              From hotel booking platforms and business applications to
+              <strong>AI-powered automation</strong> and proprietary products, MrD Brains
+              builds digital solutions designed around real business needs.
             </p>
 
             <!-- WhatsApp highlight -->
@@ -62,15 +60,9 @@ import { RouterLink } from '@angular/router';
               <div class="was-badge">NEW</div>
             </div>
 
-            <!-- Feature grid -->
-            <div class="hero-features animate-in" style="animation-delay:.68s">
-              <div class="hf-item" *ngFor="let f of features">
-                <div class="hfi-icon"><i [class]="f.icon"></i></div>
-                <div class="hfi-body">
-                  <div class="hfi-title">{{ f.title }}</div>
-                  <div class="hfi-desc">{{ f.desc }}</div>
-                </div>
-              </div>
+            <!-- Capability line -->
+            <div class="hero-capabilities animate-in" style="animation-delay:.68s">
+              <span *ngFor="let c of capabilities; let last=last">{{ c }}<i class="bi bi-dot" *ngIf="!last"></i></span>
             </div>
 
             <!-- CTA Row -->
@@ -79,8 +71,8 @@ import { RouterLink } from '@angular/router';
                 <i class="bi bi-rocket-takeoff"></i>
                 <span>Start a Project</span>
               </a>
-              <a href="#services" class="btn-outline" (click)="smooth($event,'services')">
-                Explore Services <i class="bi bi-arrow-right"></i>
+              <a routerLink="/work" class="btn-outline">
+                Explore Our Work <i class="bi bi-arrow-right"></i>
               </a>
             </div>
 
@@ -94,21 +86,18 @@ import { RouterLink } from '@angular/router';
                   <div class="pca pca-more">+2</div>
                 </div>
                 <div class="pc-text">
-                  <div class="pct-stars">
-                    <i class="bi bi-star-fill" *ngFor="let s of [1,2,3,4,5]"></i>
-                  </div>
                   <span>Trusted by <strong>5+ Indian businesses</strong></span>
                 </div>
               </div>
               <div class="proof-divider"></div>
               <div class="proof-stat">
-                <span class="ps-val">15+</span>
+                <span class="ps-val">20+</span>
                 <span class="ps-lbl">Projects Shipped</span>
               </div>
               <div class="proof-divider"></div>
               <div class="proof-stat">
-                <span class="ps-val">3+</span>
-                <span class="ps-lbl">Years Excellence</span>
+                <span class="ps-val">Multiple</span>
+                <span class="ps-lbl">Industries</span>
               </div>
             </div>
           </div>
@@ -143,7 +132,7 @@ import { RouterLink } from '@angular/router';
               <div class="vis-card vc-a">
                 <div class="vcard-icon vi-gold"><i class="bi bi-folder2-open"></i></div>
                 <div>
-                  <div class="vcard-val">15+</div>
+                  <div class="vcard-val">20+</div>
                   <div class="vcard-lbl">Projects Delivered</div>
                 </div>
               </div>
@@ -159,8 +148,8 @@ import { RouterLink } from '@angular/router';
               <div class="vis-card vc-c">
                 <div class="vcard-icon vi-coral"><i class="bi bi-shield-fill-check"></i></div>
                 <div>
-                  <div class="vcard-val">99.9%</div>
-                  <div class="vcard-lbl">Uptime SLA</div>
+                  <div class="vcard-val">Built for Scale</div>
+                  <div class="vcard-lbl">Production Ready</div>
                 </div>
               </div>
 
@@ -311,25 +300,13 @@ import { RouterLink } from '@angular/router';
       flex-shrink: 0;
     }
 
-    /* Feature grid */
-    .hero-features {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 32px; max-width: 510px;
+    /* Capability line */
+    .hero-capabilities {
+      display: flex; flex-wrap: wrap; align-items: center;
+      font-family: var(--f-mono); font-size: .74rem; color: var(--ghost-d);
+      letter-spacing: .04em; margin-bottom: 32px; max-width: 510px;
+      i { color: var(--gold); margin: 0 2px; }
     }
-    @media(max-width:500px){ .hero-features{grid-template-columns:1fr} }
-    .hf-item {
-      display: flex; align-items: flex-start; gap: 10px;
-      background: rgba(255,255,255,.025); border: 1px solid rgba(255,255,255,.06);
-      border-radius: 10px; padding: 13px 14px; transition: all .25s ease;
-      &:hover { border-color: rgba(201,151,74,.2); background: rgba(201,151,74,.04); }
-    }
-    .hfi-icon {
-      width: 32px; height: 32px; flex-shrink: 0; border-radius: 8px;
-      background: rgba(201,151,74,.1); border: 1px solid rgba(201,151,74,.18);
-      display: flex; align-items: center; justify-content: center;
-      i { color: var(--gold); font-size: .82rem; }
-    }
-    .hfi-title { font-family: var(--f-head); font-weight: 700; font-size: .78rem; color: var(--ghost); margin-bottom: 2px; }
-    .hfi-desc  { font-size: .7rem; color: var(--ghost-d); line-height: 1.5; }
 
     .hero-ctas { display: flex; gap: 13px; flex-wrap: wrap; margin-bottom: 34px; }
 
@@ -498,12 +475,9 @@ import { RouterLink } from '@angular/router';
       background: linear-gradient(90deg,transparent,var(--gold) 25%,var(--coral) 75%,transparent);
     }
     .strip-row {
-      display: grid; grid-template-columns: repeat(5,1fr);
+      display: grid; grid-template-columns: repeat(4,1fr);
     }
     @media(max-width:767px){
-      .strip-row { grid-template-columns: repeat(3,1fr); }
-    }
-    @media(max-width:480px){
       .strip-row { grid-template-columns: repeat(2,1fr); }
     }
     .strip-item {
@@ -540,40 +514,16 @@ import { RouterLink } from '@angular/router';
   `]
 })
 export class HeroComponent implements OnInit, OnDestroy {
-  words = ['Powerful', 'Elegant', 'Scalable', 'Intelligent', 'Secure', 'Future-Ready'];
-  wi = 0; ci = 0; del = false; typed = ''; caretVis = false;
-  private t: any;
-
-  features = [
-    { icon: 'bi bi-microsoft',      title: '.NET & C# Expertise',      desc: 'Enterprise desktop & web apps' },
-    { icon: 'bi bi-code-slash',     title: 'Angular & React',           desc: 'Modern SPAs & PWAs' },
-    { icon: 'bi bi-cloud',          title: 'Azure Cloud',               desc: 'Scalable cloud infrastructure' },
-    { icon: 'bi bi-whatsapp',       title: 'WhatsApp AI Bots',          desc: 'Automated customer engagement' },
-    { icon: 'bi bi-graph-up-arrow', title: 'Digital Marketing',         desc: 'SEO, ads & analytics' },
-  ];
+  capabilities = ['Web', 'Mobile', 'Enterprise', 'AI', 'Hospitality'];
 
   stats = [
-    { icon: 'bi bi-folder2-open',  val: '15+',  lbl: 'Projects' },
-    { icon: 'bi bi-people-fill',   val: '5+',   lbl: 'Clients' },
-    { icon: 'bi bi-calendar-check',val: '3+',   lbl: 'Years' },
-    { icon: 'bi bi-headset',       val: '200+', lbl: 'Support Hrs' },
-    { icon: 'bi bi-star-fill',     val: '5.0',  lbl: 'Rating' },
+    { icon: 'bi bi-folder2-open',   val: '20+',      lbl: 'Projects' },
+    { icon: 'bi bi-people-fill',    val: '5+',       lbl: 'Clients' },
+    { icon: 'bi bi-diagram-3',      val: 'Multiple', lbl: 'Industries' },
+    { icon: 'bi bi-broadcast',      val: 'Live & Ongoing', lbl: 'Systems' },
   ];
 
-  ngOnInit() { this.caretVis = true; this.type(); }
-  ngOnDestroy() { clearTimeout(this.t); }
-  type() {
-    const w = this.words[this.wi];
-    this.typed = this.del ? w.substring(0, --this.ci) : w.substring(0, ++this.ci);
-    if (!this.del && this.ci === w.length) {
-      this.t = setTimeout(() => { this.del = true; this.type(); }, 2400); return;
-    }
-    if (this.del && this.ci === 0) { this.del = false; this.wi = (this.wi + 1) % this.words.length; }
-    this.t = setTimeout(() => this.type(), this.del ? 48 : 88);
-  }
-  smooth(e: Event, id: string) {
-    e.preventDefault();
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
+  ngOnInit() {}
+  ngOnDestroy() {}
   constructor(@Inject(PLATFORM_ID) private pid: object) {}
 }

@@ -87,9 +87,9 @@ import { CommonModule } from '@angular/common';
 })
 export class StatsComponent {
   stats = [
-    { icon: 'bi bi-folder2-open',   val: '15+',   label: 'Projects Delivered',  sub: 'Across Maharashtra' },
-    { icon: 'bi bi-people-fill',    val: '5+',    label: 'Happy Clients',        sub: 'SMEs & Enterprises' },
-    { icon: 'bi bi-calendar-check', val: '3+',    label: 'Years of Excellence',  sub: 'Est. 2022, Mumbai' },
-    { icon: 'bi bi-headset',        val: '200+',  label: 'Support Hours',        sub: 'Post-launch care' },
+    { icon: 'bi bi-folder2-open',   val: '20+',   label: 'Projects',            sub: 'Across Maharashtra' },
+    { icon: 'bi bi-people-fill',    val: '5+',    label: 'Clients',              sub: 'SMEs & Enterprises' },
+    { icon: 'bi bi-diagram-3',      val: 'Multiple', label: 'Industries',        sub: 'Hospitality, business & AI' },
+    { icon: 'bi bi-broadcast',      val: 'Live & Ongoing', label: 'Systems', sub: 'In production today' },
   ];
 }

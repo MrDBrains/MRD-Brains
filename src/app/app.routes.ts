@@ -13,6 +13,16 @@ export const routes: Routes = [
       import('./pages/about.page').then(m => m.AboutPageComponent),
   },
   {
+    path: 'services',
+    loadComponent: () =>
+      import('./pages/services.page').then(m => m.ServicesPageComponent),
+  },
+  {
+    path: 'products',
+    loadComponent: () =>
+      import('./pages/products.page').then(m => m.ProductsPageComponent),
+  },
+  {
     path: 'work',
     loadComponent: () =>
       import('./pages/work.page').then(m => m.WorkPageComponent),

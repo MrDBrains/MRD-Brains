@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Title, Meta } from '@angular/platform-browser';
 import { PricingComponent } from '../components/pricing/pricing.component';
 import { ProcessComponent } from '../components/process/process.component';
 
@@ -75,8 +76,17 @@ declare const AOS: any;
   `]
 })
 export class ProcessPageComponent implements OnInit {
-  constructor(@Inject(PLATFORM_ID) private pid: object) {}
+  constructor(
+    @Inject(PLATFORM_ID) private pid: object,
+    private titleSrv: Title,
+    private metaSrv: Meta,
+  ) {}
   ngOnInit() {
+    this.titleSrv.setTitle('Our Development Process | MrD Brains');
+    this.metaSrv.updateTag({
+      name: 'description',
+      content: 'How MrD Brains takes a project from requirement to production — discovery, design, build, testing, launch and ongoing support.',
+    });
     if (isPlatformBrowser(this.pid)) {
       window.scrollTo(0, 0);
       if (typeof AOS !== 'undefined') AOS.refresh();

@@ -296,6 +296,8 @@ export class NavbarComponent {
   links = [
     { route: '/',        label: 'Home',      sub: 'Welcome'      },
     { route: '/about',   label: 'About',     sub: 'Our story'    },
+    { route: '/services',label: 'Services',  sub: 'What we do'   },
+    { route: '/products',label: 'Products',  sub: 'Vyapar Ledger'},
     { route: '/work',    label: 'Our Work',  sub: 'Portfolio'    },
     { route: '/process', label: 'Process',   sub: 'How we work'  },
     { route: '/contact', label: 'Contact',   sub: 'Get in touch' },

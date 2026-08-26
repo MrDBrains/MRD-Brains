@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -48,7 +48,7 @@ import { RouterLink } from '@angular/router';
               </div>
             </div>
             <p class="ft-desc">
-              Mumbai's premier custom software studio — crafting scalable .NET, Angular &amp; React
+              A Mumbai-based technology partner — crafting scalable .NET, Angular &amp; React
               solutions, AI-powered automation, and enterprise IT infrastructure since 2022.
             </p>
             <div class="ft-badges">
@@ -59,24 +59,26 @@ import { RouterLink } from '@angular/router';
             <div class="ft-socials">
               <a href="https://www.linkedin.com/company/mrd-brains" target="_blank"><i class="bi bi-linkedin"></i></a>
               <a href="https://github.com/MrDBrains" target="_blank"><i class="bi bi-github"></i></a>
-              <a href="#" (click)="$event.preventDefault()"><i class="bi bi-twitter-x"></i></a>
-              <a href="#" (click)="$event.preventDefault()"><i class="bi bi-instagram"></i></a>
             </div>
           </div>
 
-          <!-- Navigation -->
+          <!-- Company -->
           <div class="ft-col">
-            <h5>Navigation</h5>
+            <h5>Company</h5>
             <ul>
               <li *ngFor="let l of nav"><a (click)="go(l.id)">{{ l.label }}</a></li>
             </ul>
           </div>
 
-          <!-- Services -->
+          <!-- Products -->
           <div class="ft-col">
-            <h5>Services</h5>
+            <h5>Products</h5>
             <ul>
-              <li *ngFor="let s of svcs"><a (click)="go('services')">{{ s }}</a></li>
+              <li><a (click)="go('/products')">Vyapar Ledger</a></li>
+            </ul>
+            <h5 class="ft-sub-h5">Industries</h5>
+            <ul>
+              <li *ngFor="let s of svcs"><a (click)="go('/work')">{{ s }}</a></li>
             </ul>
           </div>
 
@@ -101,7 +103,7 @@ import { RouterLink } from '@angular/router';
         <!-- Bottom bar -->
         <div class="ft-bottom">
           <div class="ftb-left">
-            <p>© 2025 <strong>MrD Brains Technology</strong>. All Rights Reserved.</p>
+            <p>© {{ year }} <strong>MrD Brains Technology</strong>. All Rights Reserved.</p>
             <div class="ftb-links">
               <a routerLink="/privacy">Privacy Policy</a>
               <span>·</span>
@@ -192,6 +194,7 @@ import { RouterLink } from '@angular/router';
         font-family:var(--f-mono);font-size:.66rem;font-weight:500;
         text-transform:uppercase;letter-spacing:.18em;color:var(--gold);margin-bottom:20px;
       }
+      .ft-sub-h5 { margin-top:24px; }
       ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:9px;
         li a{font-size:.82rem;font-weight:300;color:var(--ghost-d);cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:0;
           &:hover{color:var(--gold);padding-left:7px}
@@ -230,14 +233,15 @@ import { RouterLink } from '@angular/router';
 })
 export class FooterComponent {
   email = ''; subscribed = false;
+  year = new Date().getFullYear();
   nav = [
-    { id: '/',        label: 'Home'        },
-    { id: '/about',   label: 'About Us'    },
-    { id: '/work',    label: 'Our Work'    },
-    { id: '/process', label: 'How We Work' },
-    { id: '/contact', label: 'Contact'     },
+    { id: '/about',    label: 'About'    },
+    { id: '/services', label: 'Services' },
+    { id: '/work',     label: 'Our Work' },
+    { id: '/process',  label: 'Process'  },
+    { id: '/contact',  label: 'Contact'  },
   ];
-  svcs = ['WhatsApp AI', 'Desktop Development', 'Web App Development', 'IT Infrastructure', 'Managed Hosting', 'Digital Marketing'];
+  svcs = ['Hospitality', 'Business', 'Enterprise'];
   contacts = [
     { icon: 'bi bi-geo-alt-fill',   label: 'Address',       value: '03 Jawahar Nagar, Khar East, Mumbai 400051' },
     { icon: 'bi bi-telephone-fill', label: 'Phone / WA',    value: '+91 937-240-1266' },
@@ -246,5 +250,6 @@ export class FooterComponent {
   ];
   tech = ['.NET', 'Angular', 'React', 'Azure', 'SQL Server', 'MongoDB'];
   subscribe() { if (this.email) { this.subscribed = true; this.email = ''; } }
-  go(route: string) { window.location.href = route; }
+  constructor(private router: Router) {}
+  go(route: string) { this.router.navigate([route]); }
 }
