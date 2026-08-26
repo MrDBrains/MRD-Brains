@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.mrdbrains.com/sitemap.xml
+Sitemap: https://mrdbrainstech.com/sitemap.xml
