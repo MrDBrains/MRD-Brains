@@ -180,7 +180,7 @@ import { RouterLink } from '@angular/router';
               <div class="contact-card">
                 <div class="cc-title">MrD Brains Technology</div>
                 <div class="cc-items">
-                  <div><i class="bi bi-geo-alt-fill"></i> 03, Jawahar Nagar, Khar East, Mumbai 400051, Maharashtra, India</div>
+                  <div><i class="bi bi-geo-alt-fill"></i> Mumbai, India</div>
                   <div><i class="bi bi-envelope-fill"></i> mrdbrainstech&#64;hotmail.com</div>
                   <div><i class="bi bi-telephone-fill"></i> +91 937-240-1266</div>
                   <div><i class="bi bi-whatsapp"></i> WhatsApp: +91 937-240-1266</div>

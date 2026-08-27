@@ -48,7 +48,7 @@ import { Router, RouterLink } from '@angular/router';
               </div>
             </div>
             <p class="ft-desc">
-              A Mumbai-based technology partner — crafting scalable .NET, Angular &amp; React
+              A Mumbai-based technology partner — crafting scalable .NET, MERN &amp; MEAN
               solutions, AI-powered automation, and enterprise IT infrastructure since 2022.
             </p>
             <div class="ft-badges">
@@ -247,12 +247,12 @@ export class FooterComponent {
   ];
   svcs = ['Hospitality', 'Business', 'Enterprise'];
   contacts = [
-    { icon: 'bi bi-geo-alt-fill',   label: 'Address',       value: '03 Jawahar Nagar, Khar East, Mumbai 400051' },
+    { icon: 'bi bi-geo-alt-fill',   label: 'Address',       value: 'Mumbai, India' },
     { icon: 'bi bi-telephone-fill', label: 'Phone / WA',    value: '+91 937-240-1266' },
     { icon: 'bi bi-envelope-fill',  label: 'Email',         value: 'mrdbrainstechnology@gmail.com' },
     { icon: 'bi bi-clock-fill',     label: 'Working Hours', value: 'Mon–Sat · 9:00 AM – 7:00 PM IST' },
   ];
-  tech = ['.NET', 'Angular', 'React', 'Azure', 'SQL Server', 'MongoDB'];
+  tech = ['.NET', 'MERN', 'MEAN', 'AI / LLM', 'Azure', 'WPF', 'Node.js', 'n8n Automation'];
   subscribe() { if (this.email) { this.subscribed = true; this.email = ''; } }
   constructor(private router: Router) {}
   go(route: string) { this.router.navigate([route]); }

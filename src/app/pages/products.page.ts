@@ -18,7 +18,7 @@ declare const AOS: any;
       eyebrow="Products"
       titleLine1="Our Own Product."
       titleEm="Built by MrD Brains."
-      description="Vyapar Ledger — complete business management with billing, GST, inventory, customers, ledger, expenses, reports and AI-powered insights, all in one platform."
+      description="Vyapar Ledger — built for how Indian shop owners actually bill, track GST and manage stock. Billing, inventory, customers, ledger, expenses, reports and AI-powered insights, all in one platform."
       breadcrumbLabel="Products">
     </app-page-hero>
     <app-vyapar-ledger></app-vyapar-ledger>

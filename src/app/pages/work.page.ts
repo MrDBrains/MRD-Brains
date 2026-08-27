@@ -18,7 +18,7 @@ declare const AOS: any;
       eyebrow="Selected Work"
       titleLine1="Built for Business."
       titleEm="Proven in Production."
-      description="Explore the digital platforms, business applications and technology solutions we've built for clients across hospitality, education, enterprise and emerging technology."
+      description="Real platforms running in production for real clients — not case studies, not concepts. See what we've actually shipped across hospitality, education, enterprise and emerging technology."
       breadcrumbLabel="Our Work">
       <div class="ph-small">Live projects · Ongoing engagements · Proprietary products</div>
     </app-page-hero>

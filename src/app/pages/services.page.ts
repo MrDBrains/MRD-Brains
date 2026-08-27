@@ -17,7 +17,7 @@ declare const AOS: any;
       eyebrow="What We Do"
       titleLine1="End-to-End"
       titleEm="Technology Services."
-      description="Custom software, web & mobile applications, AI automation, hotel technology, cloud infrastructure and business platforms — built around how your business actually works."
+      description="Custom software, web & mobile apps, AI automation, hotel technology, cloud infrastructure and business platforms — built the way Indian businesses actually run, not how a generic template assumes they should."
       breadcrumbLabel="Services">
     </app-page-hero>
     <app-services></app-services>

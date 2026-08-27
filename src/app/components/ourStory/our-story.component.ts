@@ -37,7 +37,7 @@ import { RouterLink } from '@angular/router';
                 <div class="fc-title">Founder & CEO · MrD Brains Technology</div>
                 <div class="fc-location">
                   <i class="bi bi-geo-alt-fill"></i>
-                  Khar East, Mumbai · Maharashtra
+                  Mumbai, India
                 </div>
               </div>
               <div class="fc-divider"></div>
@@ -150,7 +150,7 @@ import { RouterLink } from '@angular/router';
               </p>
 
               <p class="sb-p">
-                Three years on, from their studio in Khar East, the team has
+                Three years on, from their studio in Mumbai, the team has
                 shipped 15+ projects across Mumbai — ERP systems, WhatsApp AI bots,
                 LMS platforms, jewellery management SaaS — all built the
                 MrD Brains way. The name on the door is a daily reminder

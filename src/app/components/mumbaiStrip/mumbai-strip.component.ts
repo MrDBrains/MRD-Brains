@@ -23,8 +23,8 @@ import { CountUpDirective } from '../../shared/directives/count-up.directive';
                 <i class="bi bi-geo-alt-fill"></i>
               </div>
               <div>
-                <div class="mf-city">Mumbai, Maharashtra</div>
-                <div class="mf-country">India · 400051</div>
+                <div class="mf-city">Mumbai</div>
+                <div class="mf-country">India</div>
               </div>
             </div>
             <h2 class="ms-title">
@@ -53,7 +53,7 @@ import { CountUpDirective } from '../../shared/directives/count-up.directive';
                   <div class="mmd-pulse p2"></div>
                   <div class="mmd-core"><i class="bi bi-geo-alt-fill"></i></div>
                 </div>
-                <div class="msc-label">Khar East, Mumbai</div>
+                <div class="msc-label">Mumbai, India</div>
                 <div class="msc-sub">Our Studio Location</div>
                 <div class="msc-divider"></div>
                 <div class="msc-stats">
@@ -291,7 +291,7 @@ export class MumbaiStripComponent {
     {
       icon: 'bi bi-handshake-fill',
       title: 'Meet Us in Person',
-      desc: 'We\'re in Khar East. You can visit, have chai, and look us in the eye.',
+      desc: 'We\'re based in Mumbai. You can visit, have chai, and look us in the eye.',
     },
   ];
 
@@ -301,7 +301,7 @@ export class MumbaiStripComponent {
     { icon: 'bi bi-file-earmark-text',    text: 'GST-Ready Software' },
     { icon: 'bi bi-currency-rupee',       text: 'INR Pricing, No Surprises' },
     { icon: 'bi bi-clock-fill',           text: 'IST Timezone Support' },
-    { icon: 'bi bi-handshake-fill',       text: 'Meet Us in Khar East' },
+    { icon: 'bi bi-handshake-fill',       text: 'Meet Us in Mumbai' },
     { icon: 'bi bi-bank',                 text: 'UPI & NEFT Integrations' },
     { icon: 'bi bi-shield-fill-check',    text: 'Built for Indian Businesses' },
   ];

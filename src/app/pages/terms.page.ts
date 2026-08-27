@@ -54,7 +54,7 @@ import { RouterLink } from '@angular/router';
             <div class="legal-section" id="definitions">
               <h2>1. Definitions</h2>
               <ul>
-                <li><strong>"Company"</strong> refers to MrD Brains Technology, registered and operating from Khar East, Mumbai 400051, Maharashtra, India.</li>
+                <li><strong>"Company"</strong> refers to MrD Brains Technology, registered and operating from Mumbai, India.</li>
                 <li><strong>"Client"</strong> refers to any individual, business, or organisation that engages our services or uses our website.</li>
                 <li><strong>"Services"</strong> refers to software development, IT infrastructure, WhatsApp automation, digital marketing, hosting, and any other services we provide.</li>
                 <li><strong>"Project"</strong> refers to any specific engagement agreed upon between the Company and the Client.</li>
@@ -66,7 +66,7 @@ import { RouterLink } from '@angular/router';
               <h2>2. Our Services</h2>
               <p>MrD Brains Technology provides the following services:</p>
               <ul>
-                <li>Custom software development (.NET, Angular, React, Node.js)</li>
+                <li>Custom software development (.NET, MERN, MEAN)</li>
                 <li>Desktop application development (WPF, WinForms)</li>
                 <li>Web application development and API development</li>
                 <li>WhatsApp Business API automation and AI chatbot development</li>
@@ -197,7 +197,7 @@ import { RouterLink } from '@angular/router';
               <div class="contact-card">
                 <div class="cc-title">MrD Brains Technology</div>
                 <div class="cc-items">
-                  <div><i class="bi bi-geo-alt-fill"></i> 03, Jawahar Nagar, Khar East, Mumbai 400051, Maharashtra, India</div>
+                  <div><i class="bi bi-geo-alt-fill"></i> Mumbai, India</div>
                   <div><i class="bi bi-envelope-fill"></i> mrdbrainstech&#64;hotmail.com</div>
                   <div><i class="bi bi-telephone-fill"></i> +91 937-240-1266</div>
                   <div><i class="bi bi-whatsapp"></i> WhatsApp: +91 937-240-1266</div>

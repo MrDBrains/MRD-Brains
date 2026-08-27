@@ -45,10 +45,19 @@ import { Router } from '@angular/router';
   `,
   styles: [`
     .page-hero {
-      padding: 160px 0 100px; background: var(--obsidian);
+      min-height: 100vh; min-height: 100svh; min-height: 100dvh;
+      display: flex; align-items: center; justify-content: center;
+      padding: 108px 0 70px; background: var(--obsidian);
       position: relative; overflow: hidden; text-align: center;
     }
-    @media(max-width:767px){ .page-hero{ padding: 128px 0 72px; } }
+    @media(max-width:767px){ .page-hero{ padding: 84px 0 54px; } }
+    @media(max-height:820px){ .page-hero{ padding: 92px 0 56px; } }
+    @media(max-height:700px){
+      .page-hero{ padding: 80px 0 44px; }
+      .ph-title{ margin-bottom: 12px; }
+      .ph-desc{ margin-bottom: 16px; }
+    }
+    .ph-inner{ width: 100%; }
 
     /* Subtle grain so the flat panel never reads as "empty" */
     .ph-noise {

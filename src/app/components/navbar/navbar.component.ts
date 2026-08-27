@@ -92,7 +92,7 @@ import { filter } from 'rxjs/operators';
         </a>
         <div class="dr-contact">
           <span><i class="bi bi-telephone-fill"></i> +91 937-240-1266</span>
-          <span><i class="bi bi-geo-alt-fill"></i> Khar East, Mumbai</span>
+          <span><i class="bi bi-geo-alt-fill"></i> Mumbai, India</span>
         </div>
       </div>
     </div>
@@ -287,7 +287,7 @@ import { filter } from 'rxjs/operators';
 export class NavbarComponent {
   pinned = false; open = false; cur = '/';
   tickers = [
-    { icon: 'bi bi-geo-alt-fill',      text: 'Mumbai, Maharashtra — Khar East' },
+    { icon: 'bi bi-geo-alt-fill',      text: 'Mumbai, India' },
     { icon: 'bi bi-check-circle-fill', text: 'Industry-standard delivery practices' },
     { icon: 'bi bi-whatsapp',          text: 'WhatsApp Automation & AI Solutions Now Available' },
     { icon: 'bi bi-telephone-fill',    text: '+91 937-240-1266' },

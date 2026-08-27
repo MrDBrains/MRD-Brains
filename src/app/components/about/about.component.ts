@@ -37,8 +37,8 @@ import { CountUpDirective } from '../../shared/directives/count-up.directive';
             <p class="sc-body">
               MrD Brains Technology was born in the heart of Mumbai's tech ecosystem in 2022.
               Frustrated by off-the-shelf software that never quite fit, our founders — seasoned
-              .NET and cloud engineers — set out to build a studio that creates bespoke, elegant
-              technology tailored to each client's unique reality.
+              .NET, MERN and MEAN stack engineers — set out to build a studio that creates
+              bespoke, elegant technology tailored to each client's unique reality.
             </p>
             <p class="sc-body" style="margin-top:14px">
               Today we serve startups, SMEs and enterprises across Maharashtra, delivering
@@ -91,7 +91,7 @@ import { CountUpDirective } from '../../shared/directives/count-up.directive';
                 </div>
                 <div class="cc-info">
                   <div class="cc-name">MrD Brains Technology</div>
-                  <div class="cc-loc"><i class="bi bi-geo-alt-fill"></i> 03 Jawahar Nagar, Khar East, Mumbai 400051</div>
+                  <div class="cc-loc"><i class="bi bi-geo-alt-fill"></i> Mumbai, India</div>
                 </div>
                 <div class="cc-est">
                   <span>Est.</span>
@@ -313,12 +313,12 @@ export class AboutComponent {
     {
       year: '2022',
       title: 'Studio Founded',
-      desc: 'Launched MrD Brains Technology in Khar East, Mumbai, with a focus on custom .NET development and business-focused software solutions.',
+      desc: 'Launched MrD Brains Technology in Mumbai, India, with a focus on custom .NET development and business-focused software solutions.',
     },
     {
       year: '2023',
       title: 'Cloud & Web Expansion',
-      desc: 'Expanded into Angular, React and Azure cloud technologies, while delivering our first enterprise business and ERP solutions.',
+      desc: 'Expanded into full MERN and MEAN stack development alongside Azure cloud technologies, while delivering our first enterprise business and ERP solutions.',
     },
     {
       year: '2025',
@@ -333,19 +333,21 @@ export class AboutComponent {
   ];
 
   strengths = [
-    { icon: 'bi bi-cpu-fill', title: 'Custom Software Development', desc: 'Precision-engineered desktop and web apps built for scale and longevity.', score: 96 },
+    { icon: 'bi bi-cpu-fill', title: 'Custom Software Development', desc: 'Full-stack engineering across .NET, MERN and MEAN — precision-built apps for scale and longevity.', score: 96 },
     { icon: 'bi bi-cloud-check-fill', title: 'Cloud & Azure Infrastructure', desc: 'Resilient, secure cloud architecture with 99.9% uptime commitments.', score: 92 },
     { icon: 'bi bi-robot', title: 'AI & WhatsApp Automation', desc: 'Intelligent workflow automation reducing manual effort by 70%+.', score: 89 },
 
   ];
 
   tech = [
-    { icon: 'bi bi-microsoft', name: '.NET 8' },
-    { icon: 'bi bi-code-slash', name: 'Angular' },
-    { icon: 'bi bi-app', name: 'React' },
+    { icon: 'bi bi-microsoft', name: '.NET' },
+    { icon: 'bi bi-hexagon', name: 'MERN' },
+    { icon: 'bi bi-code-slash', name: 'MEAN' },
+    { icon: 'bi bi-robot', name: 'AI / LLM' },
     { icon: 'bi bi-cloud', name: 'Azure' },
-    { icon: 'bi bi-database', name: 'SQL Server' },
-    { icon: 'bi bi-server', name: 'MongoDB' },
+    { icon: 'bi bi-window', name: 'WPF' },
+    { icon: 'bi bi-diagram-3', name: 'Node.js' },
+    { icon: 'bi bi-gear-wide-connected', name: 'n8n Automation' },
   ];
 
   miniStats = [

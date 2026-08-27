@@ -173,7 +173,7 @@ import { RouterLink } from '@angular/router';
       display: flex; align-items: center; gap: 9px;
       padding: 15px 20px; background: none; border: none; cursor: pointer;
       font-family: var(--f-head); font-weight: 600; font-size: .78rem;
-      color: rgba(237,233,225,.4); white-space: nowrap; position: relative;
+      color: var(--ghost-d); white-space: nowrap; position: relative;
       transition: color .3s ease, transform .35s cubic-bezier(.34,1.56,.64,1);
       margin-bottom: -1px; border-radius: 12px 12px 0 0; isolation: isolate; z-index: 1;
       &::before {
@@ -428,17 +428,17 @@ export class ServicesComponent implements AfterViewInit {
     {
       icon: 'bi bi-globe2', isWa: false, isNew: false,
       short: 'Web & Mobile', title: 'Web & Mobile Development',
-      summary: 'Websites, web applications, mobile apps and dashboards.',
-      desc: 'Customer-facing websites, internal web applications, mobile apps and dashboards — built to be fast, responsive and easy for real people to use.',
+      summary: 'Websites, web apps and mobile apps — built on MERN & MEAN.',
+      desc: 'Customer-facing websites, internal web applications, mobile apps and dashboards — built on the MERN and MEAN stacks to be fast, responsive and easy for real people to use.',
       timeframe: '8–20 weeks',
-      stack: ['Angular', 'React', 'ASP.NET Core', 'TypeScript'],
+      stack: ['Angular (MEAN)', 'React (MERN)', 'Node.js', 'MongoDB'],
       bullets: [
         { title: 'Websites',           desc: 'Marketing and business websites built to convert visitors into leads.' },
         { title: 'Web Applications',   desc: 'Scalable customer and internal web platforms.' },
         { title: 'Mobile Applications',desc: 'Mobile experiences for customers and field teams.' },
         { title: 'Dashboards',         desc: 'Real-time dashboards that turn business data into decisions.' },
       ],
-      stats: [{ val: 'Angular / React', lbl: 'Frontend' }, { val: 'Responsive', lbl: 'Every Device' }],
+      stats: [{ val: 'MERN / MEAN', lbl: 'Full Stack' }, { val: 'Responsive', lbl: 'Every Device' }],
     },
     {
       icon: 'bi bi-robot', isWa: true, isNew: false,

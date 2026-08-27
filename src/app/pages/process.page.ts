@@ -18,7 +18,7 @@ declare const AOS: any;
       eyebrow="How We Work"
       titleLine1="Transparent Process."
       titleEm="No Surprises."
-      description="From first call to go-live — exactly what happens at every stage, what it costs, and what you can expect from us."
+      description="From first call to go-live — exactly what happens at every stage, what it costs in plain rupees, and what you can expect from us. No jargon, no hidden line items."
       breadcrumbLabel="How We Work">
     </app-page-hero>
     <app-process></app-process>

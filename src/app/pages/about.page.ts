@@ -26,7 +26,7 @@ declare const AOS: any;
       eyebrow="About MrD Brains"
       titleLine1="The Team Behind"
       titleEm="Mumbai's Software Studio"
-      description="Founded in 2022 with one mission — build software that actually fits the business it's made for."
+      description="Founded in 2022 out of Mumbai, India, with one mission — build software that actually fits the business it's made for, shipped by people who sit with the problem until it's solved."
       breadcrumbLabel="About">
     </app-page-hero>
     <app-stats></app-stats>

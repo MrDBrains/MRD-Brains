@@ -387,7 +387,7 @@ export class ContactComponent {
   sending = false; sent = false;
 
   infos = [
-    { icon: 'bi bi-geo-alt-fill', label: 'Studio Address', value: '03, Jawahar Nagar, Khar East, Mumbai 400051' },
+    { icon: 'bi bi-geo-alt-fill', label: 'Studio Address', value: 'Mumbai, India' },
     { icon: 'bi bi-telephone-fill', label: 'Phone / WhatsApp', value: '+91 937-240-1266' },
     { icon: 'bi bi-envelope-fill', label: 'Email', value: 'mrdbrainstechnology@gmail.com' },
   ];
@@ -401,7 +401,7 @@ export class ContactComponent {
   services = [
     'WhatsApp Automation & AI Chatbots',
     'Desktop App Development (.NET)',
-    'Web App Development (Angular / React)',
+    'Web App Development (MERN / MEAN)',
     'IT Infrastructure & Cloud (Azure)',
     'Managed Hosting Services',
     'Digital Marketing & SEO',

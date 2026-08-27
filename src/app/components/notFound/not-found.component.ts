@@ -88,7 +88,7 @@ import { CommonModule } from '@angular/common';
         <div class="nf-footer">
           <span>© 2025 MrD Brains Technology</span>
           <span class="nff-sep">·</span>
-          <span>Khar East, Mumbai</span>
+          <span>Mumbai, India</span>
           <span class="nff-sep">·</span>
           <a href="tel:+919372401266">+91 937-240-1266</a>
         </div>
